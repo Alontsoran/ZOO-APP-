@@ -17,8 +17,8 @@ const getvisitorHTMLCard = (visitor) => {
       </div>`;
 
   const wrapper = document.createElement("div");
-  wrapper.className = "product-card";
+  wrapper.className = "visitor-card";
   wrapper.innerHTML = template;
-  wrapper.addEventListener("click", () => handleProductClick(product));
+  wrapper.addEventListener("click", () => handlevisitorClick(visitor));
   return wrapper;
 };
