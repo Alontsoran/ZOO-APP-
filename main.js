@@ -1,100 +1,108 @@
 function generateDataset() {
   let visitors = [
-    { name: "JohnSmith", coins: 50, photo: "./photos/people/JohnSmith.webp" },
+    {
+      name: "JohnSmith",
+      coins: 50,
+      photo: "https://i.ibb.co/7SpTTF5/johnsmith.webp",
+    },
     {
       name: "Emily Johnson",
       coins: 50,
-      photo: "./photos/people/EmilyJohnson.webp",
+      photo: "https://i.ibb.co/cDxD96W/Amanda-Wilson.webp",
     },
     {
       name: "Michael Williams",
       coins: 50,
-      photo: "./photos/people/MichaelWilliams.webp",
+      photo: "https://i.ibb.co/Y8ZXKRy/Michael-Williams.webp",
     },
     {
       name: "Jessica Brown",
       coins: 50,
-      photo: "./photos/people/JessicaBrown.webp",
+      photo:
+        "https://i.ibb.co/sVzYhDq/DALL-E-2024-02-18-20-52-56-Create-a-LEGO-figure-profile-picture-of-a-character-named-Jessica-Brown-T.webp", //
     },
     {
       name: "Christopher Jones",
       coins: 50,
-      photo: "./photos/people/Christopher Jones.webp",
+      photo: "https://i.ibb.co/z8f2f04/Christopher-Jones.webp",
     },
     {
       name: "Ashley Davis",
       coins: 50,
-      photo: "./photos/people/AshleyDavis.webp",
+      photo: "https://i.ibb.co/z818Lc1/Ashley-Davis.webp",
     },
     {
       name: "Matthew Miller",
       coins: 50,
-      photo: "./photos/people/MatthewMiller.webp",
+      photo:
+        "https://i.ibb.co/BZVcVYK/DALL-E-2024-02-18-20-52-52-Create-a-LEGO-figure-profile-picture-of-a-character-named-Jessica-Brown-T.webp",
     },
     {
       name: "AmandaWilson",
       coins: 50,
-      photo: "./photos/people/AmandaWilson.png",
+      photo: "https://i.ibb.co/cDxD96W/Amanda-Wilson.webp",
     },
     {
       name: "DavidMoore",
       coins: 50,
-      photo: "./photos/people/DavidMoore.webp",
+      photo: "https://i.ibb.co/HFnzCPn/David-Moore.webp",
     },
     {
       name: "SarahTaylor",
       coins: 50,
-      photo: "./photos/people/SarahTaylor.webp",
+      photo: "https://i.ibb.co/3S191GB/Sarah-Taylor.webp",
     },
     {
       name: "JamesAnderson",
       coins: 50,
-      photo: "./photos/people/JamesAnderson.webp",
+      photo: "https://i.ibb.co/BtTBbJF/James-Anderson.webp",
     },
     {
       name: "JenniferThomas",
       coins: 50,
-      photo: "./photos/people/JenniferThomas.webp",
+      photo: "https://i.ibb.co/dJkLK0T/Jennifer-Thomas.webp",
     },
     {
       name: "Robert Jackson",
       coins: 50,
-      photo: "./photos/people/RobertJackson.webp",
+      photo: "https://i.ibb.co/njHxBrg/Robert-Jackson.webp",
     },
     {
       name: "Elizabeth White",
       coins: 50,
-      photo: "./photos/people/ElizabethWhite.webp",
+      photo: "https://i.ibb.co/n1m5rJq/Elizabeth-White.webp",
     },
     {
       name: "DanielHarris",
       coins: 50,
-      photo: "./photos/people/DanielHarris.webp",
+      photo: "https://i.ibb.co/XSyGjP4/Daniel-Harris.webp",
     },
     {
       name: "MelissaMartin",
       coins: 50,
-      photo: "./photos/people/MelissaMartin.webp",
+      photo: "https://i.ibb.co/Z6XRqbm/Melissa-Martin.webp",
     },
     {
       name: "WilliamThompson",
       coins: 50,
-      photo: "./photos/people/WilliamThompson.webp",
+      photo: "https://i.ibb.co/4Rv99VW/William-Thompson.webp",
     },
     {
       name: "LindaGarcia",
       coins: 50,
-      photo: "./photos/people/LindaGarcia.webp",
+      photo: "https://i.ibb.co/WfPjM86/Linda-Garcia.webp",
     },
     {
       name: "JosephMartinez",
       coins: 50,
-      photo: "./photos/people/JosephMartinez.webp",
+      photo:
+        "https://i.ibb.co/CbNXJxY/DALL-E-2024-02-18-20-53-02-Create-a-LEGO-figure-profile-picture-of-a-character-named-Michael-William.webp",
     },
     {
       name: "KarenRobinson",
       coins: 50,
-      photo: "./photos/people/KarenRobinson.webp",
+      photo:
+        "https://i.ibb.co/ZYB8Vbg/DALL-E-2024-02-18-20-53-05-Create-a-LEGO-figure-profile-picture-of-a-character-named-Emily-Johnson-T.webp",
     },
   ];
   let animals = [

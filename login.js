@@ -2,9 +2,7 @@ function loginAsVisitor(visitorName) {
   // תממשו את הלוגיקה של בחירת אורח שנכנס לגן החיות
   // שמרו את האורח שבחרתם, בלוקל סטורג' כך שבכל העמודים נדע מי האורח הנוכחי
 }
-window.addEventListener("load", () => {
-  // Render the product cards inside #placeholder
-});
+
 document.addEventListener("DOMContentLoaded", (event) => {
   displayVisitors();
   generateDataset();
@@ -21,9 +19,8 @@ function displayVisitors() {
     });
   }
 }
-
 function getvisitorHTMLCard(visitor) {
-  return `
+  const template = `
     <div class="card" style="width: 18rem; margin: 10px;">
       <img class="card-img-top" src=${visitor.photo} alt="תמונת ${visitor.name}">
       <div class="card-body">
@@ -32,6 +29,7 @@ function getvisitorHTMLCard(visitor) {
       </div>
     </div>
   `;
+  return template;
 }
 
 //נדרש עיבוד לטובת שמירה בJS + USER
@@ -43,6 +41,6 @@ const getCloseModalHTMLButton = () => {
 };
 const handlevisitorClick = (visitor) => {
   dialog.innerHTML = "";
-  dialog.append(getCloseModalHTMLButton(), getProductHTMLCard(product));
+  dialog.append(getCloseModalHTMLButton(), getProductHTMLCard(visitor));
   dialog.showModal();
 };
