@@ -3,6 +3,9 @@ function loginAsVisitor(visitorName) {
   // שמרו את האורח שבחרתם, בלוקל סטורג' כך שבכל העמודים נדע מי האורח הנוכחי
 }
 
+let visitorsForView = [...visitors];
+const dialog = document.querySelector("#visitor-dialog");
+
 const getvisitorHTMLCard = (visitor) => {
   const template = `
       <div class="card" style="min-height: 360px;" >
