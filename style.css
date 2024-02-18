@@ -1,0 +1,13 @@
+#visitorsList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#cardss {
+  border: 5px solid black;
+}
+#cardss div {
+  border: 1px solid black;
+  background-color: coral;
+}

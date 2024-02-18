@@ -9,19 +9,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 function displayVisitors() {
-  const visitors = JSON.parse(localStorage.getItem("visitors")); // קריאת הנתונים מ-Local Storage
+  const visitors = JSON.parse(localStorage.getItem("visitors")) || []; // Read the data from Local Storage, default to empty array if null
   const visitorsContainer = document.getElementById("visitorsList");
 
-  if (visitors && visitorsContainer) {
-    visitorsContainer.innerHTML = ""; // ניקוי התצוגה הקודמת
-    visitors.forEach((visitor) => {
+  let alive_visitors = visitors.filter((visitor) => visitor.alive === 1);
+  if (alive_visitors && visitorsContainer) {
+    visitorsContainer.innerHTML = "";
+    alive_visitors.forEach((visitor) => {
       visitorsContainer.innerHTML += getvisitorHTMLCard(visitor);
     });
   }
 }
 function getvisitorHTMLCard(visitor) {
   const template = `
-    <div class="card" style="width:300px; margin: 10px;">
+    <div id ="cardss" class="card" style="width:300px; margin: 10px; ">
       <img class="card-img-top" src=${visitor.photo} alt="תמונת ${visitor.name}">
       <div class="card-body">
         <h5 class="card-title">${visitor.name}</h5>
