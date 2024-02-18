@@ -1,103 +1,102 @@
 function generateDataset() {
   let visitors = [
-    { name: "John Smith", coins: 50, photo: "./photos/people/John_Smith.webp" },
+    { name: "John Smith", coins: 50, photo: "./photos/people/John Smith.webp" },
     {
       name: "Emily Johnson",
       coins: 50,
-      photo: "./photos/people/Emily_Johnson.webp",
+      photo: "./photos/people/Emily Johnson.webp",
     },
     {
       name: "Michael Williams",
       coins: 50,
-      photo: "./photos/people/Michael_Williams.webp",
+      photo: "./photos/people/Michael Williams.webp",
     },
     {
       name: "Jessica Brown",
       coins: 50,
-      photo: "./photos/people/Jessica_Brown.webp",
+      photo: "./photos/people/Jessica Brown.webp",
     },
     {
       name: "Christopher Jones",
       coins: 50,
-      photo: "./photos/people/Christopher_Jones.webp",
+      photo: "./photos/people/Christopher Jones.webp",
     },
     {
       name: "Ashley Davis",
       coins: 50,
-      photo: "./photos/people/Ashley_Davis.webp",
+      photo: "./photos/people/Ashley Davis.webp",
     },
     {
       name: "Matthew Miller",
       coins: 50,
-      photo: "./photos/people/Matthew_Miller.webp",
+      photo: "./photos/people/Matthew Miller.webp",
     },
     {
       name: "Amanda Wilson",
       coins: 50,
-      photo: "./photos/people/Amanda_Wilson.webp",
+      photo: "./photos/people/Amanda Wilson.webp",
     },
     {
       name: "David Moore",
       coins: 50,
-      photo: "./photos/people/David_Moore.webp",
+      photo: "./photos/people/David Moore.webp",
     },
     {
       name: "Sarah Taylor",
       coins: 50,
-      photo: "./photos/people/Sarah_Taylor.webp",
+      photo: "./photos/people/Sarah Taylor.webp",
     },
     {
       name: "James Anderson",
       coins: 50,
-      photo: "./photos/people/James_Anderson.webp",
+      photo: "./photos/people/James Anderson.webp",
     },
     {
       name: "Jennifer Thomas",
       coins: 50,
-      photo: "./photos/people/Jennifer_Thomas.webp",
+      photo: "./photos/people/Jennifer Thomas.webp",
     },
     {
       name: "Robert Jackson",
       coins: 50,
-      photo: "./photos/people/Robert_Jackson.webp",
+      photo: "./photos/people/Robert Jackson.webp",
     },
     {
       name: "Elizabeth White",
       coins: 50,
-      photo: "./photos/people/Elizabeth_White.webp",
+      photo: "./photos/people/Elizabeth White.webp",
     },
     {
       name: "Daniel Harris",
       coins: 50,
-      photo: "./photos/people/Daniel_Harris.webp",
+      photo: "./photos/people/Daniel Harris.webp",
     },
     {
       name: "Melissa Martin",
       coins: 50,
-      photo: "./photos/people/Melissa_Martin.webp",
+      photo: "./photos/people/Melissa Martin.webp",
     },
     {
       name: "William Thompson",
       coins: 50,
-      photo: "./photos/people/William_Thompson.webp",
+      photo: "./photos/people/William Thompson.webp",
     },
     {
       name: "Linda Garcia",
       coins: 50,
-      photo: "./photos/people/Linda_Garcia.webp",
+      photo: "./photos/people/Linda Garcia.webp",
     },
     {
       name: "Joseph Martinez",
       coins: 50,
-      photo: "./photos/people/Joseph_Martinez.webp",
+      photo: "./photos/people/Joseph Martinez.webp",
     },
     {
       name: "Karen Robinson",
       coins: 50,
-      photo: "./photos/people/Karen_Robinson.webp",
+      photo: "./photos/people/Karen Robinson.webp",
     },
   ];
-
   let animals = [
     {
       name: "Lion",
@@ -186,6 +185,7 @@ function generateDataset() {
 
   console.log(visitors);
 }
+localStorage.setItem("visitors");
 
 generateDataset();
 

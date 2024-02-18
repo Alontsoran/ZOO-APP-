@@ -5,25 +5,36 @@ function loginAsVisitor(visitorName) {
 window.addEventListener("load", () => {
   // Render the product cards inside #placeholder
 });
-let visitorsForView = [...visitors];
-const dialog = document.querySelector("#visitor-dialog");
+document.addEventListener("DOMContentLoaded", (event) => {
+  displayVisitors();
+  generateDataset();
+});
 
-const getvisitorHTMLCard = (visitor) => {
-  const template = `
-      <div class="card" style="min-height: 360px;" >
-        <img class="card-img-top" src="${visitor.thumbImage}" alt="${visitor.name}"/>
-        <div class="card-body">
-          <p class="card-text">${visitor.name}</p>
-          <p class="card-text">${visitor.price}</p>
-        </div>
-      </div>`;
+function displayVisitors() {
+  const visitors = JSON.parse(localStorage.getItem("visitors")); // קריאת הנתונים מ-Local Storage
+  const visitorsContainer = document.getElementById("visitorsList");
 
-  const wrapper = document.createElement("div");
-  wrapper.className = "visitor-card";
-  wrapper.innerHTML = template;
-  wrapper.addEventListener("click", () => handlevisitorClick(visitor));
-  return wrapper;
-};
+  if (visitors && visitorsContainer) {
+    visitorsContainer.innerHTML = ""; // ניקוי התצוגה הקודמת
+    visitors.forEach((visitor) => {
+      visitorsContainer.innerHTML += getvisitorHTMLCard(visitor);
+    });
+  }
+}
+
+function getvisitorHTMLCard(visitor) {
+  generateDataset();
+  return `
+    <div class="card" style="width: 18rem; margin: 10px;">
+      <img class="card-img-top" src=${visitor.photo} alt="תמונת ${visitor.name}">
+      <div class="card-body">
+        <h5 class="card-title">${visitor.name}</h5>
+        <p class="card-text">coins: ${visitor.coins}</p>
+      </div>
+    </div>
+  `;
+}
+
 //נדרש עיבוד לטובת שמירה בJS + USER
 const getCloseModalHTMLButton = () => {
   const closeButton = document.createElement("button");
