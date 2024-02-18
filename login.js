@@ -21,7 +21,7 @@ function displayVisitors() {
 }
 function getvisitorHTMLCard(visitor) {
   const template = `
-    <div class="card" style="width: 18rem; margin: 10px;">
+    <div class="card" style="width:300px; margin: 10px;">
       <img class="card-img-top" src=${visitor.photo} alt="תמונת ${visitor.name}">
       <div class="card-body">
         <h5 class="card-title">${visitor.name}</h5>
