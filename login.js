@@ -23,7 +23,6 @@ function displayVisitors() {
 }
 
 function getvisitorHTMLCard(visitor) {
-  generateDataset();
   return `
     <div class="card" style="width: 18rem; margin: 10px;">
       <img class="card-img-top" src=${visitor.photo} alt="תמונת ${visitor.name}">

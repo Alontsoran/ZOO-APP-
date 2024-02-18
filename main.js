@@ -1,20 +1,20 @@
 function generateDataset() {
   let visitors = [
-    { name: "John Smith", coins: 50, photo: "./photos/people/John Smith.webp" },
+    { name: "JohnSmith", coins: 50, photo: "./photos/people/JohnSmith.webp" },
     {
       name: "Emily Johnson",
       coins: 50,
-      photo: "./photos/people/Emily Johnson.webp",
+      photo: "./photos/people/EmilyJohnson.webp",
     },
     {
       name: "Michael Williams",
       coins: 50,
-      photo: "./photos/people/Michael Williams.webp",
+      photo: "./photos/people/MichaelWilliams.webp",
     },
     {
       name: "Jessica Brown",
       coins: 50,
-      photo: "./photos/people/Jessica Brown.webp",
+      photo: "./photos/people/JessicaBrown.webp",
     },
     {
       name: "Christopher Jones",
@@ -24,77 +24,77 @@ function generateDataset() {
     {
       name: "Ashley Davis",
       coins: 50,
-      photo: "./photos/people/Ashley Davis.webp",
+      photo: "./photos/people/AshleyDavis.webp",
     },
     {
       name: "Matthew Miller",
       coins: 50,
-      photo: "./photos/people/Matthew Miller.webp",
+      photo: "./photos/people/MatthewMiller.webp",
     },
     {
-      name: "Amanda Wilson",
+      name: "AmandaWilson",
       coins: 50,
-      photo: "./photos/people/Amanda Wilson.webp",
+      photo: "./photos/people/AmandaWilson.png",
     },
     {
-      name: "David Moore",
+      name: "DavidMoore",
       coins: 50,
-      photo: "./photos/people/David Moore.webp",
+      photo: "./photos/people/DavidMoore.webp",
     },
     {
-      name: "Sarah Taylor",
+      name: "SarahTaylor",
       coins: 50,
-      photo: "./photos/people/Sarah Taylor.webp",
+      photo: "./photos/people/SarahTaylor.webp",
     },
     {
-      name: "James Anderson",
+      name: "JamesAnderson",
       coins: 50,
-      photo: "./photos/people/James Anderson.webp",
+      photo: "./photos/people/JamesAnderson.webp",
     },
     {
-      name: "Jennifer Thomas",
+      name: "JenniferThomas",
       coins: 50,
-      photo: "./photos/people/Jennifer Thomas.webp",
+      photo: "./photos/people/JenniferThomas.webp",
     },
     {
       name: "Robert Jackson",
       coins: 50,
-      photo: "./photos/people/Robert Jackson.webp",
+      photo: "./photos/people/RobertJackson.webp",
     },
     {
       name: "Elizabeth White",
       coins: 50,
-      photo: "./photos/people/Elizabeth White.webp",
+      photo: "./photos/people/ElizabethWhite.webp",
     },
     {
-      name: "Daniel Harris",
+      name: "DanielHarris",
       coins: 50,
-      photo: "./photos/people/Daniel Harris.webp",
+      photo: "./photos/people/DanielHarris.webp",
     },
     {
-      name: "Melissa Martin",
+      name: "MelissaMartin",
       coins: 50,
-      photo: "./photos/people/Melissa Martin.webp",
+      photo: "./photos/people/MelissaMartin.webp",
     },
     {
-      name: "William Thompson",
+      name: "WilliamThompson",
       coins: 50,
-      photo: "./photos/people/William Thompson.webp",
+      photo: "./photos/people/WilliamThompson.webp",
     },
     {
-      name: "Linda Garcia",
+      name: "LindaGarcia",
       coins: 50,
-      photo: "./photos/people/Linda Garcia.webp",
+      photo: "./photos/people/LindaGarcia.webp",
     },
     {
-      name: "Joseph Martinez",
+      name: "JosephMartinez",
       coins: 50,
-      photo: "./photos/people/Joseph Martinez.webp",
+      photo: "./photos/people/JosephMartinez.webp",
     },
     {
-      name: "Karen Robinson",
+      name: "KarenRobinson",
       coins: 50,
-      photo: "./photos/people/Karen Robinson.webp",
+      photo: "./photos/people/KarenRobinson.webp",
     },
   ];
   let animals = [
