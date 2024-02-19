@@ -1,47 +1,48 @@
-function loginAsVisitor(visitorName) {
-  // תממשו את הלוגיקה של בחירת אורח שנכנס לגן החיות
-  // שמרו את האורח שבחרתם, בלוקל סטורג' כך שבכל העמודים נדע מי האורח הנוכחי
+// This function now serves as the single source of truth for filtering alive visitors
+function getAliveVisitors(visitors) {
+  return visitors.filter((visitor) => visitor.alive === 1);
+}
+function displayVisitors(visitors) {
+  const visitorsContainer =
+    document.getElementById("visitorsList") ||
+    document.getElementById("searchResults");
+  visitorsContainer.innerHTML = ""; //ניקוי מה שהיה
+  // פה ממפים את המבקרים
+  const visitorsHTML = visitors.map(getvisitorHTMLCard).join("");
+  visitorsContainer.innerHTML = visitorsHTML;
 }
 
-document.addEventListener("DOMContentLoaded", (event) => {
-  displayVisitors();
-  generateDataset();
-});
-
-function displayVisitors() {
-  const visitors = JSON.parse(localStorage.getItem("visitors")) || []; // Read the data from Local Storage, default to empty array if null
-  const visitorsContainer = document.getElementById("visitorsList");
-
-  let alive_visitors = visitors.filter((visitor) => visitor.alive === 1);
-  if (alive_visitors && visitorsContainer) {
-    visitorsContainer.innerHTML = "";
-    alive_visitors.forEach((visitor) => {
-      visitorsContainer.innerHTML += getvisitorHTMLCard(visitor);
-    });
-  }
-}
 function getvisitorHTMLCard(visitor) {
-  const template = `
-    <div id ="cardss" class="card" style="width:300px; margin: 10px; ">
-      <img class="card-img-top" src=${visitor.photo} alt="תמונת ${visitor.name}">
+  return `
+    <div id="cardss" class="card" style="width:300px; margin: 10px;">
+      <img class="card-img-top" src="${visitor.photo}" 
+      alt="Picture of ${visitor.name}">
       <div class="card-body">
         <h5 class="card-title">${visitor.name}</h5>
-        <p class="card-text">coins: ${visitor.coins}</p>
+        <p class="card-text">Coins: ${visitor.coins}</p>
+        <button onclick="handlevisitorClick(${JSON.stringify(visitor)
+          .split('"')
+          .join("&quot;")})">Log in to ${visitor.name}</button>
       </div>
     </div>
   `;
-  return template;
+}
+function search(input) {
+  const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+  let filteredUsers = getAliveVisitors(visitors).filter((visitor) =>
+    visitor.name.includes(input)
+  );
+  console.log(filteredUsers);
+  displayVisitors(filteredUsers);
+}
+function displayaliveVisitors() {
+  const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+  displayVisitors(getAliveVisitors(visitors));
 }
 
-//נדרש עיבוד לטובת שמירה בJS + USER
-const getCloseModalHTMLButton = () => {
-  const closeButton = document.createElement("button");
-  closeButton.innerText = " Close modal";
-  closeButton.addEventListener("click", () => dialog.close());
-  return closeButton;
-};
-const handlevisitorClick = (visitor) => {
-  dialog.innerHTML = "";
-  dialog.append(getCloseModalHTMLButton(), getProductHTMLCard(visitor));
-  dialog.showModal();
-};
+document.addEventListener("DOMContentLoaded", function () {
+  displayaliveVisitors(); // Display all alive visitors on load
+  document.getElementById("searchBox").addEventListener("input", function () {
+    search(this.value);
+  });
+});

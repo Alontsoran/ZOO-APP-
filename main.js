@@ -222,7 +222,6 @@ function generateDataset() {
 
   console.log(visitors);
 }
-localStorage.setItem("visitors");
 generateDataset();
 function logout() {
   //ממשו את הלוגיקה שמתנתקת מאורח מחובר
