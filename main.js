@@ -133,6 +133,7 @@ function generateDataset() {
       height: 120,
       color: "brown",
       habitat: "land",
+      in_cage: 1,
     },
     {
       name: "Elephant",
@@ -141,6 +142,7 @@ function generateDataset() {
       height: 200,
       color: "grey",
       habitat: "land",
+      in_cage: 1,
     },
     {
       name: "Giraffe",
@@ -149,6 +151,7 @@ function generateDataset() {
       height: 120,
       color: "brown",
       habitat: "land",
+      in_cage: 1,
     },
     {
       name: "Tiger",
@@ -157,6 +160,7 @@ function generateDataset() {
       height: 120,
       color: "brown",
       habitat: "land",
+      in_cage: 1,
     },
     {
       name: "Monkey",
@@ -165,6 +169,7 @@ function generateDataset() {
       height: 120,
       color: "brown",
       habitat: "land",
+      in_cage: 1,
     },
     {
       name: "Kangaroo",
@@ -173,6 +178,7 @@ function generateDataset() {
       height: 120,
       color: "brown",
       habitat: "land",
+      in_cage: 1,
     },
     {
       name: "Penguin",
@@ -181,6 +187,7 @@ function generateDataset() {
       height: 120,
       color: "brown",
       habitat: "sea",
+      in_cage: 1,
     },
     {
       name: "Zebra",
@@ -189,6 +196,7 @@ function generateDataset() {
       height: 120,
       color: "brown",
       habitat: "land",
+      in_cage: 1,
     },
     {
       name: "Cheetah",
@@ -197,6 +205,7 @@ function generateDataset() {
       height: 120,
       color: "brown",
       habitat: "land",
+      in_cage: 1,
     },
   ];
 

@@ -8,6 +8,35 @@
     <script src="./main.js"></script>
   </head>
   <body>
+
+    <form id="filrerForm">
+
+      <label for="isPredator">predator:</label>
+      <select id="isPredator">
+        <option value="true">yes</option>
+        <option value="false">no</option>
+      </select>
+
+      <label for="habitat">Habitat:</label>
+      <select id="habitat">
+        <option value="land">Land</option>
+        <option value="sea">Sea</option>
+      </select>
+
+      <label for="weight">Minimum Weight:</label>
+      <input type="number" id="weight" min="0">
+    
+      <label for="height">Minimum Height:</label>
+      <input type="number" id="height" min="0">
+
+<!--כאן צריך להכניס אפשרות סינון משוכללת לצבעים כל בסיס הצבעים שיש לחיות, זה דורש עבודה עם הJS-->
+      <label for="color">Color:</label>
+      <select id="color">
+        <!-- אופציות יתווספו דינמית על ידי JavaScript -->
+      </select>
+
+      <button type="submit">Filter</button>
+    </form>
     <div id="animal-cards"></div>
     <script src="zoo.js"></script>
   </body>
