@@ -11,3 +11,10 @@
   border: 1px solid black;
   background-color: coral;
 }
+#login_body {
+  background: url(./photos/Z9_Jungle.jpg);
+}
+#nav-bar {
+  background-color: aliceblue;
+  position: relative;
+}
