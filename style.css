@@ -18,3 +18,37 @@
   background-color: aliceblue;
   position: relative;
 }
+
+/*הסטייל של דף הZOO*/
+#forms {
+  border: 3px;
+  border-color: black;
+  width: 700px;
+  /*צריך לסדר גבול וצל*/
+}
+
+#filrerForm {
+  display: flex;
+  flex-direction: row;
+  width: 700px;
+}
+
+#filrerForm label {
+  margin-top: 10px;
+}
+
+#filrerForm div {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+#filrerForm button {
+  margin-top: 10px;
+  background-color: orange;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  width: 70px;
+}
