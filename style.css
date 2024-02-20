@@ -21,9 +21,10 @@
 
 /*הסטייל של דף הZOO*/
 #forms {
-  border: 3px;
+  border: 60px;
   border-color: black;
   width: 700px;
+  margin: auto;
   /*צריך לסדר גבול וצל*/
 }
 
@@ -44,11 +45,17 @@
 }
 
 #filrerForm button {
-  margin-top: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
   background-color: orange;
   border: none;
   color: white;
   padding: 10px;
   cursor: pointer;
   width: 70px;
+  height: 35px
+}
+
+input {
+  width: 110px;
 }

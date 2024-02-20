@@ -23,9 +23,39 @@ function setFilter(filterKey, filterValue) {
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  renderAvailableAnimals()
   animalInZOO = BasicFilter()
+  renderAvailableAnimals()
+
+  const filterForm = document.getElementById('filrerForm');
+
+  filterForm.addEventListener('submit', function (e) {
+    e.preventDefault(); 
+
+    const filterValues = {
+      isPredator: document.getElementById('isPredator').value,
+      habitat: document.getElementById('habitat').value,
+      weight: document.getElementById('weight').value,
+      height: document.getElementById('height').value,
+      color: document.getElementById('color').value
+    };
+  });
+
+    const savedFilterSettings = localStorage.getItem('filterSettings');
+  
+    if (savedFilterSettings) {
+      const filterValues = JSON.parse(savedFilterSettings);
+      
+      // שחזר את הערכים לממשק המשתמש
+      document.getElementById('isPredator').value = filterValues.isPredator;
+      document.getElementById('habitat').value = filterValues.habitat;
+      document.getElementById('weight').value = filterValues.weight;
+      document.getElementById('height').value = filterValues.height;
+      document.getElementById('color').value = filterValues.color;
+    };
+  
 });
+
+document.addEventListener
 
 function BasicFilter(){
   const animals = JSON.parse(localStorage.getItem("animals")) || []; 
