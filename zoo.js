@@ -35,8 +35,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // סינון ראשוני
   animalInZOO = BasicFilter();
 
-  // שליחה לסינוןוהצגה
-  renderAvailableAnimals(animalInZOO);
+
 
   // קבלת אלמנט הטופס
   const filterForm = document.getElementById('filrerForm'); 
@@ -70,22 +69,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     // שמירת הגדרות הסינון ל-local storage
     localStorage.setItem('filterSettings', JSON.stringify(filterValues));
-
-
+    //ריענון הדף
+    window.location.reload();
   });
+    // שליחה לסינוןוהצגה
+    renderAvailableAnimals(animalInZOO);
 });
 
 
 function BasicFilter(){
   const animals = JSON.parse(localStorage.getItem("animals")) || []; 
-  let animalInZOO = animals.filter((animal) => animal.in_cage ===1)
+  let animalInZOO = animals.filter((animal) => animal.in_cage ==1)
   return animalInZOO
 }
 
 //קוד כפול!!! צריך לבדוק האם ניתן להעביר את הפונקציה הזו לmain מפה ומlogin
 function getvisitorHTMLCard(animal) {
   const template = `
-    <div id="cardss" class="card" style="width:300px; margin: 10px;">
+    <div id="cardss" class="cardss" style="width:300px; margin: 10px;">
       <img class="card-img-top" src=${animal.photo} alt="תמונת ${animal.name}">
       <div class="card-body">
         <h5 class="card-title">${animal.name}</h5>
@@ -106,11 +107,11 @@ function AdvancedFilter(animals){
   }
   
   const filteredAnimals = animals.filter(animal => {
-    return (savedFilterSettings.isPredator === 'all' || animal.isPredator.toString() === savedFilterSettings.isPredator) &&
-           (savedFilterSettings.habitat === 'all' || animal.habitat === savedFilterSettings.habitat) &&
-           (!savedFilterSettings.weight || animal.weight >= parseFloat(savedFilterSettings.weight)) &&
-           (!savedFilterSettings.height || animal.height >= parseFloat(savedFilterSettings.height)) &&
-           (savedFilterSettings.color === 'all' || animal.color === savedFilterSettings.color);
+    return (savedFilterSettings.isPredator === 'All' || animal.isPredator.toString() === savedFilterSettings.isPredator) &&
+           (savedFilterSettings.habitat === 'All' || animal.habitat === savedFilterSettings.habitat) &&
+           (!savedFilterSettings.weight || animal.weight >= parseInt(savedFilterSettings.weight)) &&
+           (!savedFilterSettings.height || animal.height >= parseInt(savedFilterSettings.height)) &&
+           (savedFilterSettings.color === 'All' || animal.color === savedFilterSettings.color);
   });
   
   return filteredAnimals;

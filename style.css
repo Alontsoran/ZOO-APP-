@@ -59,3 +59,13 @@
 input {
   width: 110px;
 }
+
+#animal-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#animal-cards p {
+  margin: 10px;
+}
