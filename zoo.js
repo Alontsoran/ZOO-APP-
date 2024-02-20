@@ -23,12 +23,15 @@ function setFilter(filterKey, filterValue) {
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  // טעינת נתונים 
+  // סינון ראשוני
   animalInZOO = BasicFilter();
 
+  // שליחה לסינוןוהצגה
+  //afretFlret = setFilter(filterKey, filterValue)
+  //renderAvailableAnimals(afretFlret);
 
   // קבלת אלמנט הטופס
-  const filterForm = document.getElementById('filterForm'); // תקן את ה-ID אם הוא שונה
+  const filterForm = document.getElementById('filrerForm'); 
 
   // טעינת הגדרות הסינון אם קיימות
   const savedFilterSettings = localStorage.getItem('filterSettings');
@@ -42,9 +45,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     document.getElementById('height').value = filterValues.height;
     document.getElementById('color').value = filterValues.color;
   }
-// שליחה לסינון
-  afretFlret = setFilter(filterKey, filterValue)
-  renderAvailableAnimals(afretFlret);
+
 
   // הוספת אירוע לטופס עבור השמירה
   filterForm.addEventListener('submit', function (e) {
@@ -66,7 +67,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 });
 
-document.addEventListener
 
 function BasicFilter(){
   const animals = JSON.parse(localStorage.getItem("animals")) || []; 
