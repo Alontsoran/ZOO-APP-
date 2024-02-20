@@ -20,14 +20,19 @@ function getvisitorHTMLCard(visitor) {
       <div class="card-body">
         <h5 class="card-title">${visitor.name}</h5>
         <p class="card-text">Coins: ${visitor.coins}</p>
-        <button onclick="handlevisitorClick(${JSON.stringify(visitor)
-          .split('"')
-          .join("&quot;")})">Log in to ${visitor.name}</button> </div>
+        <button onclick="handlevisitorClick(${visitor})">Log in to ${visitor.name}</button> </div>
     </div>
   `;
 }
-function handlevisitorClick(name) {
-  console.log(name);
+function handlevisitorClick(visitorID) {
+  const visitors = JSON.parse(localStorage.getItem("visitors"));
+  const visitor = visitors.find((v) => v === visitorID);
+  if (visitor) {
+    localStorage.setItem("login", JSON.stringify(visitor));
+    alert(`Logged in as ${visitor.name}`);
+  } else {
+    alert("Visitor not found.");
+  }
 }
 function search(input) {
   const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
