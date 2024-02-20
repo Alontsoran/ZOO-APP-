@@ -18,7 +18,12 @@
   background-color: aliceblue;
   position: relative;
 }
-
+#dialogs {
+  z-index: 1;
+  position: relative;
+  border: solid black 10px;
+  background-color: aliceblue;
+}
 /*הסטייל של דף הZOO*/
 #forms {
   border: 60px;

@@ -49,6 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 function saveName(name) {
-  localStorage.setItem("selectedVisitor", name);
+  var savedName = localStorage.getItem("selectedVisitor");
+  if (savedName !== name) {
+    localStorage.setItem("selectedVisitor", name);
+  }
 }
 let savedName = localStorage.getItem("selectedVisitor");
