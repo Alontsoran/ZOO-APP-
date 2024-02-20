@@ -23,14 +23,34 @@ function setFilter(filterKey, filterValue) {
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  animalInZOO = BasicFilter()
-  renderAvailableAnimals()
+  // טעינת נתונים 
+  animalInZOO = BasicFilter();
 
-  const filterForm = document.getElementById('filrerForm');
 
+  // קבלת אלמנט הטופס
+  const filterForm = document.getElementById('filterForm'); // תקן את ה-ID אם הוא שונה
+
+  // טעינת הגדרות הסינון אם קיימות
+  const savedFilterSettings = localStorage.getItem('filterSettings');
+  if (savedFilterSettings) {
+    const filterValues = JSON.parse(savedFilterSettings);
+
+    // שחזור הערכים לממשק המשתמש
+    document.getElementById('isPredator').value = filterValues.isPredator;
+    document.getElementById('habitat').value = filterValues.habitat;
+    document.getElementById('weight').value = filterValues.weight;
+    document.getElementById('height').value = filterValues.height;
+    document.getElementById('color').value = filterValues.color;
+  }
+// שליחה לסינון
+  afretFlret = setFilter(filterKey, filterValue)
+  renderAvailableAnimals(afretFlret);
+
+  // הוספת אירוע לטופס עבור השמירה
   filterForm.addEventListener('submit', function (e) {
-    e.preventDefault(); 
+    e.preventDefault();
 
+    // קבלת ערכי הסינון מהממשק
     const filterValues = {
       isPredator: document.getElementById('isPredator').value,
       habitat: document.getElementById('habitat').value,
@@ -38,21 +58,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
       height: document.getElementById('height').value,
       color: document.getElementById('color').value
     };
-  });
 
-    const savedFilterSettings = localStorage.getItem('filterSettings');
-  
-    if (savedFilterSettings) {
-      const filterValues = JSON.parse(savedFilterSettings);
-      
-      // שחזר את הערכים לממשק המשתמש
-      document.getElementById('isPredator').value = filterValues.isPredator;
-      document.getElementById('habitat').value = filterValues.habitat;
-      document.getElementById('weight').value = filterValues.weight;
-      document.getElementById('height').value = filterValues.height;
-      document.getElementById('color').value = filterValues.color;
-    };
-  
+    // שמירת הגדרות הסינון ל-local storage
+    localStorage.setItem('filterSettings', JSON.stringify(filterValues));
+
+
+  });
 });
 
 document.addEventListener
