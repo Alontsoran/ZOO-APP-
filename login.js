@@ -22,10 +22,12 @@ function getvisitorHTMLCard(visitor) {
         <p class="card-text">Coins: ${visitor.coins}</p>
         <button onclick="handlevisitorClick(${JSON.stringify(visitor)
           .split('"')
-          .join("&quot;")})">Log in to ${visitor.name}</button>
-      </div>
+          .join("&quot;")})">Log in to ${visitor.name}</button> </div>
     </div>
   `;
+}
+function handlevisitorClick(name) {
+  console.log(name);
 }
 function search(input) {
   const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
