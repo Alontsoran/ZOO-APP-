@@ -223,6 +223,7 @@ function generateDataset() {
   console.log(visitors);
 }
 generateDataset();
+
 function logout() {
   //ממשו את הלוגיקה שמתנתקת מאורח מחובר
   // שימו לב לנקות את השדה המתאים בלוקל סטורג'

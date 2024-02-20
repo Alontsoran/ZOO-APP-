@@ -24,7 +24,6 @@ function getvisitorHTMLCard(visitor) {
         </div>
     </div>
   `;
-
   var wrapper = template;
   return template;
 }
