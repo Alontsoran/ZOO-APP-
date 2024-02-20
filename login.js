@@ -2,6 +2,7 @@
 function getAliveVisitors(visitors) {
   return visitors.filter((visitor) => visitor.alive === 1);
 }
+
 function displayVisitors(visitors) {
   const visitorsContainer =
     document.getElementById("visitorsList") ||
@@ -13,26 +14,19 @@ function displayVisitors(visitors) {
 }
 
 function getvisitorHTMLCard(visitor) {
-  return `
+  var template = `
     <div id="cardss" class="card" style="width:300px; margin: 10px;">
       <img class="card-img-top" src="${visitor.photo}" 
       alt="Picture of ${visitor.name}">
       <div class="card-body">
         <h5 class="card-title">${visitor.name}</h5>
         <p class="card-text">Coins: ${visitor.coins}</p>
-        <button onclick="handlevisitorClick(${visitor})">Log in to ${visitor.name}</button> </div>
+        </div>
     </div>
   `;
-}
-function handlevisitorClick(visitorID) {
-  const visitors = JSON.parse(localStorage.getItem("visitors"));
-  const visitor = visitors.find((v) => v === visitorID);
-  if (visitor) {
-    localStorage.setItem("login", JSON.stringify(visitor));
-    alert(`Logged in as ${visitor.name}`);
-  } else {
-    alert("Visitor not found.");
-  }
+
+  var wrapper = template;
+  return template;
 }
 function search(input) {
   const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
