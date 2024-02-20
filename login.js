@@ -2,6 +2,7 @@
 function getAliveVisitors(visitors) {
   return visitors.filter((visitor) => visitor.alive === 1);
 }
+document.getElementById("click");
 
 function displayVisitors(visitors) {
   const visitorsContainer =
@@ -15,12 +16,13 @@ function displayVisitors(visitors) {
 
 function getvisitorHTMLCard(visitor) {
   var template = `
-    <div id="cardss" class="card" style="width:300px; margin: 10px;">
+    <div id="cardss" <div id="cardss" class="card"  class="card" name="${visitor.name}+name" style="width:300px; margin: 10px;">
       <img class="card-img-top" src="${visitor.photo}" 
       alt="Picture of ${visitor.name}">
       <div class="card-body">
         <h5 class="card-title">${visitor.name}</h5>
         <p class="card-text">Coins: ${visitor.coins}</p>
+        <button onclick="saveName('${visitor.name}')" >Login</button>
         </div>
     </div>
   `;
@@ -46,3 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     search(this.value);
   });
 });
+function saveName(name) {
+  localStorage.setItem("selectedVisitor", name);
+}
+let savedName = localStorage.getItem("selectedVisitor");
