@@ -146,4 +146,15 @@ input {
 
 #InformationCard div {
   display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+
+#InformationCard #Container {
+  display: flex;
+  flex-direction: column;
+}
+
+#dialogImg {
+  width: 280px;
 }
