@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 //הורדת החיות שברחו
 function BasicFilter(){
   const animals = JSON.parse(localStorage.getItem("animals")) || []; 
-  let animalInZOO = animals.filter((animal) => animal.in_cage ==1)
+  let animalInZOO = animals.filter((animal) => animal.in_cage == 1)
   return animalInZOO
 }
 
