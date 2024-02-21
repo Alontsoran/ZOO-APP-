@@ -1,13 +1,7 @@
-function renderAnimal(animalArray) {
+function renderAnimal(animal) {
   //הציגו את החיה שאליה עברתם מעמוד גן החיות ששמורה בלוקל סטורג'
   // רנדרו את פרטי החיה לתוך האלמנטים המתאימים בהתאם לשדה הספציפי
   
-  if (animalArray.length === 0) {
-    return; // כאן צריך לבנות אתרעה ומנגנון שזורק אותך לדף הבית
-  }
-
-  const animal = animalArray[0]; // מניחים ששם הוא מפתח יחודי אז יש רק אוביקט אחד במערך
-
       // עדכון כל האלמנטים ב-HTML עם המידע המתאים
   document.getElementById('name').textContent = animal.name;
   document.getElementById('weight').textContent = animal.weight + ' kg';
@@ -23,37 +17,65 @@ function renderRelatedAnimals() {
   // רנדרו אותן לתוך הדיב שמיועד להן עם האיידי related-animals
   // ממשו את אותה לוגיקה של כרטיסיית חיה כמו בכרטיסיות בעמוד zoo.html
   const AnimoalName = JSON.parse(localStorage.getItem("TheChosenAnimal"));
-  const animals = JSON.parse(localStorage.getItem("animals")) || []; 
-  animal = animals.filter((anumal) => anumal.name === AnimoalName)
-  renderAnimal(animal);
+  let animals = JSON.parse(localStorage.getItem("animals")) || []; 
+  const animal = animals.find((anumal) => anumal.name === AnimoalName);
+  return animal;
 }
 
-function feedAnimal() {
+function feedAnimal(animal , visitor) {
   // ממשו את הלוגיקה של האכלת חיה
   // במידה ואין מספיק מטבעות, טפלו בהתאם להנחיות במטלה
+  if (parseInt(visitor.coins) >= 2){
+    visitor.coins-=2;
+    console.log(visitor.coins);
+
+    localStorage.setItem('visitors', JSON.stringify(visitors));
+    window.location.reload();
+  }
+  else {
+    if (animal.isPredator) {
+      visitorGotEaten(visitor);
+    }
+    else {
+      animalEscaped(animal);
+    }
+  }
 }
 
-function visitorGotEaten() {
+function visitorGotEaten(visitor) {
   // ממשו את הלוגיקה של חיה שטורפת אורח
+  visitor.alive =0;
+  // כאן צריך להכניס דילוג
+  // כאן צריך לחזור לדף ההתחברות
+
 }
 
-function animalEscaped() {
+function animalEscaped(animal) {
   //ממשו את הלוגיקה של חיה שבורחת מגן החיות
+  animal.in_cage = 0;
+
 }
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
-      //מביא נתונים ומרנדר את הדף
-  renderRelatedAnimals()
+  // מביא נתונים ומרנדר את הדף
+  const animal = renderRelatedAnimals();
+  renderAnimal(animal);
+  
+  // מביא את הנתונים של המשתמש המחובר
+  const visitor = getVisitor();
 
-      //מביא את הנתונים של המשתמש המחובר
-  const visitorName = JSON.parse(localStorage.getItem("selectedVisitor")) || [];
-  const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
-     // מוסיף האזנה לאירוע לחיצה על הכפתור
+  // מוסיף האזנה לאירוע לחיצה על הכפתור
   const feedButton = document.getElementById('feed-animal');
   feedButton.addEventListener('click', function() {
-      // פעולות שיתבצעו כאשר הכפתור יילחץ
-
+    feedAnimal(animal, visitor);
   });
-
 });
+
+// מביא את המשתמש
+function getVisitor() {
+  const visitorName = JSON.parse(localStorage.getItem("selectedVisitor")) || [];
+  let visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+  const visitor = visitors.find((visitor) => visitor.name === visitorName)// אם רוצים לחפור אפשר להוציא את זה לפונציה נפרדת ולמנוע שכפול קוד
+  return visitor;
+}
