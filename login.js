@@ -84,8 +84,16 @@ function searchforelement(name) {
   // רק לשם הצגת המשתמש המחובר כרגע בדיאלוג - יתכן שינויים
   const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
   const foundVisitor = visitors.find((visitor) => visitor.name === name);
-  if (foundVisitor) {
-    const template = `
+  if (template(foundVisitor)) {
+    const displayElement = document.getElementById("displayElementId");
+    displayElement.innerHTML = template(foundVisitor);
+  } else {
+    const displayElement = document.getElementById("displayElementId");
+    displayElement.innerHTML = "<p>Visitor not found.</p>";
+  }
+}
+function template(foundVisitor) {
+  const template = `
       <div name="${foundVisitor.name}+name" style="width:300px; margin: 10px;">
         <img class="card-img-top" src="${foundVisitor.photo}" 
         alt="Picture of ${foundVisitor.name}">
@@ -95,10 +103,5 @@ function searchforelement(name) {
         </div>
       </div>
     `;
-    const displayElement = document.getElementById("displayElementId");
-    displayElement.innerHTML = template;
-  } else {
-    const displayElement = document.getElementById("displayElementId");
-    displayElement.innerHTML = "<p>Visitor not found.</p>";
-  }
+  return template;
 }

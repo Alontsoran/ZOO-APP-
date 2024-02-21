@@ -4,6 +4,16 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.logintousers {
+  display: flex;
+  justify-content: center;
+}
+#searchBox {
+  position: relative;
+  justify-content: center;
+  padding-top: 26px;
+  width: 90%;
+}
 #cardss {
   border: 5px solid black;
 }
@@ -28,37 +38,20 @@
   background-color: white;
   opacity: 0.75;
 }
-/* Style the navbar */
-#navbar {
-  overflow: hidden;
-  background-color: #333;
-}
 
 /* Navbar links */
-#navbar a {
-  float: left;
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* This ensures the navbar extends full width */
   display: block;
   color: #f2f2f2;
   text-align: center;
   padding: 14px;
   text-decoration: none;
-}
-
-/* Page content */
-.content {
-  padding: 16px;
-}
-
-/* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-  padding-top: 60px;
+  background-color: #333; /* Added for visibility, change as needed */
+  z-index: 10;
 }
 
 /*דיאלוג של VISITOR*/
