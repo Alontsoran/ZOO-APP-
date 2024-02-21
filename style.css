@@ -4,6 +4,19 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.navbar-login {
+  display: flex;
+  text-decoration: none;
+  margin-bottom: auto;
+}
+.navbar-login img {
+  width: 40px;
+  height: 40px;
+}
+.tab {
+  margin-top: 15px;
+  padding-left: 25px;
+}
 .logintousers {
   display: flex;
   justify-content: center;
@@ -11,8 +24,12 @@
 #searchBox {
   position: relative;
   justify-content: center;
-  padding-top: 26px;
+  padding-top: 50px;
   width: 90%;
+}
+.card-nav {
+  display: flex;
+  padding-left: 10px;
 }
 #cardss {
   border: 5px solid black;
@@ -45,7 +62,7 @@
   top: 0;
   left: 0;
   width: 100%; /* This ensures the navbar extends full width */
-  display: block;
+  display: flex;
   color: #f2f2f2;
   text-align: center;
   padding: 14px;

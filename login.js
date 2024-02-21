@@ -58,7 +58,7 @@ function saveName(name) {
   }
 }
 //ערך גלובלי
-let savedName = localStorage.getItem("selectedVisitor");
+var savedName = localStorage.getItem("selectedVisitor");
 function dialog(saveName) {
   logout = document.getElementById("Logout_from_user"); //כפתור ניתוק
   close_ = document.getElementById("close_dialog"); //כפתור ביטול פעולה
@@ -80,11 +80,14 @@ function dialog(saveName) {
     searchforelement(savedName); //חיפוש הדיאלוג כדי להחזיר אותו בתוך הדיאלוג
   }
 }
-function searchforelement(name) {
-  // רק לשם הצגת המשתמש המחובר כרגע בדיאלוג - יתכן שינויים
+function findvisitor(name) {
   const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
   const foundVisitor = visitors.find((visitor) => visitor.name === name);
-  if (template(foundVisitor)) {
+  return foundVisitor;
+}
+function searchforelement(name) {
+  foundVisitor = findvisitor(name);
+  if (foundVisitor) {
     const displayElement = document.getElementById("displayElementId");
     displayElement.innerHTML = template(foundVisitor);
   } else {

@@ -222,12 +222,54 @@ function generateDataset() {
 
   console.log(visitors);
 }
-generateDataset();
 
 function logout() {
   //ממשו את הלוגיקה שמתנתקת מאורח מחובר
   // שימו לב לנקות את השדה המתאים בלוקל סטורג'
 }
 
-const displayElement = document.getElementById("NAVBAR");
-displayElement.innerHTML = template;
+// Assuming this populates your visitors somehow
+document.addEventListener("DOMContentLoaded", function () {
+  function updateNavbar() {
+    const nameinlocal = localStorage.getItem("selectedVisitor");
+    const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+    const visitor = findvisitor(nameinlocal);
+    const navbar = document.getElementById("visitornav");
+    if (navbar && visitor) {
+      navbar.innerHTML = template(visitor);
+    } else {
+      console.error("Navbar element or visitor not found.");
+    }
+  }
+
+  function findvisitor(name) {
+    const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+    return visitors.find((visitor) => visitor.name === name);
+  }
+
+  function template(foundVisitor) {
+    return `
+      <div class="navbar-login">
+        <img class="card-img-top" src="${foundVisitor.photo}" 
+        alt="Picture of ${foundVisitor.name}">
+        <div class="card-nav">
+          <h5 >${foundVisitor.name}</h5>
+          <p class="card-text "> <br>Coins: ${foundVisitor.coins}</p>
+        </div>
+      </div>
+    `;
+  }
+
+  updateNavbar(); // Initial navbar update
+
+  // Function to check for changes in localStorage every second
+  let previousValue = localStorage.getItem("selectedVisitor"); // Initial value
+  setInterval(function () {
+    const currentValue = localStorage.getItem("selectedVisitor");
+    if (previousValue !== currentValue) {
+      console.log('Change detected in localStorage for key "selectedVisitor".');
+      updateNavbar(); // Update the navbar with the new visitor info
+      previousValue = currentValue;
+    }
+  }, 1);
+});
