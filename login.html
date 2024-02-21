@@ -20,11 +20,6 @@
       <dialog id="visitor-dialog"></dialog>
       <div id="visitorsList"></div>
     </div>
-    <dialog id="dialogs">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed placeat,
-      facilis amet tempora aperiam ex accusamus neque numquam. Error vel
-      voluptatibus, sint saepe aspernatur nisi provident a qui itaque quod?
-    </dialog>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -32,17 +27,10 @@
       crossorigin="anonymous"
     />
     <script src="./login.js"></script>
-    <p>Click the button to open a dialog window.</p>
-
-    <button>Try it</button>
-
-    <dialog id="myDialog">This is an open dialog window</dialog>
-
-    <script>
-      function myFunction() {
-        const element = document.getElementById("myDialog");
-        element.open = true;
-      }
-    </script>
+    <dialog>
+      <button>Close</button>
+      <p>This modal dialog has a groovy backdrop!</p>
+    </dialog>
+    <button>Show the dialog</button>
   </body>
 </html>
