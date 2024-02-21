@@ -6,9 +6,9 @@ function renderAnimal(animalArray) {
     return; // כאן צריך לבנות אתרעה ומנגנון שזורק אותך לדף הבית
   }
 
-  const animal = animalArray[0]; // מניחים שיש רק אובייקט אחד במערך
+  const animal = animalArray[0]; // מניחים ששם הוא מפתח יחודי אז יש רק אוביקט אחד במערך
 
-  // עדכון כל האלמנטים ב-HTML עם המידע המתאים
+      // עדכון כל האלמנטים ב-HTML עם המידע המתאים
   document.getElementById('name').textContent = animal.name;
   document.getElementById('weight').textContent = animal.weight + ' kg';
   document.getElementById('height').textContent = animal.height + ' cm';
@@ -22,9 +22,9 @@ function renderRelatedAnimals() {
   // ממשו את הלוגיקה שמרנדרת כרטיסיות של החיות ששדה ההאביטט שלהם זהה לחיה שמוצגת
   // רנדרו אותן לתוך הדיב שמיועד להן עם האיידי related-animals
   // ממשו את אותה לוגיקה של כרטיסיית חיה כמו בכרטיסיות בעמוד zoo.html
-  const AnimoalNaem =  JSON.parse(localStorage.getItem("TheChosenAnimal"));
+  const AnimoalName = JSON.parse(localStorage.getItem("TheChosenAnimal"));
   const animals = JSON.parse(localStorage.getItem("animals")) || []; 
-  animal = animals.filter((anumal) => anumal.name === AnimoalNaem)
+  animal = animals.filter((anumal) => anumal.name === AnimoalName)
   renderAnimal(animal);
 }
 
@@ -43,7 +43,17 @@ function animalEscaped() {
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  //מביא נתונים ומרנדר את הדף
+      //מביא נתונים ומרנדר את הדף
   renderRelatedAnimals()
+
+      //מביא את הנתונים של המשתמש המחובר
+  const visitorName = JSON.parse(localStorage.getItem("selectedVisitor")) || [];
+  const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+     // מוסיף האזנה לאירוע לחיצה על הכפתור
+  const feedButton = document.getElementById('feed-animal');
+  feedButton.addEventListener('click', function() {
+      // פעולות שיתבצעו כאשר הכפתור יילחץ
+
+  });
 
 });

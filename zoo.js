@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   animalInZOO = BasicFilter();
 
 
-
   // קבלת אלמנט הטופס
   const filterForm = document.getElementById('filrerForm'); 
 
@@ -85,7 +84,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     // שמירת הגדרות הסינון ל-local storage
     localStorage.setItem('filterSettings', JSON.stringify(filterValues));
-    //ריענון הדף
+    //ריענון הדף 
     window.location.reload();
   });
     // שליחה לסינוןוהצגה
