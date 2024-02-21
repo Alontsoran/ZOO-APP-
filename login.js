@@ -57,28 +57,31 @@ function saveName(name) {
     }
   }
 }
+//ערך גלובלי
 let savedName = localStorage.getItem("selectedVisitor");
 function dialog(saveName) {
-  const visitordialog = document.getElementById("dialogid");
-  logout = document.getElementById("Logout_from_user");
-  close_ = document.getElementById("close_dialog");
+  logout = document.getElementById("Logout_from_user"); //כפתור ניתוק
+  close_ = document.getElementById("close_dialog"); //כפתור ביטול פעולה
   close_.addEventListener("click", function () {
+    //סגירת הדיאלוג
     dialogopner.open = false;
   });
   logout.addEventListener("click", function () {
+    //דרישה ושמירה של הערך החדש
     localStorage.setItem("selectedVisitor", saveName);
-    savedName = saveName;
-    dialogopner.open = false;
+    savedName = saveName; //דריסת ערך גלובלי
+    dialogopner.open = false; // סיום פעולה וסגירה
   });
   let dialogopner = document.getElementById("myDialog");
   if (dialogopner.open == true) {
     const visitorsContainer = (dialogopner.open = false);
   } else {
     dialogopner.open = true;
-    searchforelement(savedName);
+    searchforelement(savedName); //חיפוש הדיאלוג כדי להחזיר אותו בתוך הדיאלוג
   }
 }
 function searchforelement(name) {
+  // רק לשם הצגת המשתמש המחובר כרגע בדיאלוג - יתכן שינויים
   const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
   const foundVisitor = visitors.find((visitor) => visitor.name === name);
   if (foundVisitor) {
