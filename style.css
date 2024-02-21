@@ -87,3 +87,14 @@ input {
   border: 1px solid black;
   background-color: coral;
 }
+
+
+/*דף החיות*/
+#InformationCard {
+  display: flex;
+  
+}
+
+#InformationCard div {
+  display: flex;
+}
