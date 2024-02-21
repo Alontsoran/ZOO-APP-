@@ -8,11 +8,22 @@ function renderAvailableAnimals(animalInZOO) {
     animalsContainer.innerHTML = "";
   const animalsHTML = animals.map(getvisitorHTMLCard).join("");
   animalsContainer.innerHTML = animalsHTML;
+
+  animalInZOO.forEach(animal => {
+    const card = document.getElementById(`card-${animal.name}`);
+    if (card) {
+      card.addEventListener('click', () => {
+        visitAnimal(animal.name);
+      });
+    }
+  });
 }
 
 function visitAnimal(animalName) {
   // ממשו את הלוגיקה של מעבר לעמוד חיה עבור החיה הספציפית שנבחרה
   // שמרו בלוקל סטורג' את החיה שנבחרה, כך שבעמוד החיה נוכל לשלוף אותה מהסטורג' ולהציגה בהתאם
+  localStorage.setItem('TheChosenAnimal', JSON.stringify(animalName));
+  window.location.href = './animal.html';
 }
 
 function setFilter(filterKey, filterValue) {
@@ -27,6 +38,11 @@ function setFilter(filterKey, filterValue) {
    */
   // ודאו כי אתם שומרים את הפילטרים שהיוזר בחר בלוקל סטורג׳ וטוענים אותם בהתאם
   // רנדרו רק את החיות שעומדות בתנאים של הפילטרים
+  return (filterKey.isPredator === 'All' || filterValue.isPredator.toString() === filterKey.isPredator) &&
+    (filterKey.habitat === 'All' || filterValue.habitat === filterKey.habitat) &&
+    (!filterKey.weight || filterValue.weight >= parseInt(filterKey.weight)) &&
+    (!filterKey.height || filterValue.height >= parseInt(filterKey.height)) &&
+    (filterKey.color === 'All' || filterValue.color === filterKey.color);
 }
 
 
@@ -35,8 +51,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // סינון ראשוני
   animalInZOO = BasicFilter();
 
-  // שליחה לסינוןוהצגה
-  renderAvailableAnimals(animalInZOO);
+
 
   // קבלת אלמנט הטופס
   const filterForm = document.getElementById('filrerForm'); 
@@ -70,22 +85,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     // שמירת הגדרות הסינון ל-local storage
     localStorage.setItem('filterSettings', JSON.stringify(filterValues));
-
-
+    //ריענון הדף
+    window.location.reload();
   });
+    // שליחה לסינוןוהצגה
+    renderAvailableAnimals(animalInZOO);
 });
 
-
+//הורדת החיות שברחו
 function BasicFilter(){
   const animals = JSON.parse(localStorage.getItem("animals")) || []; 
-  let animalInZOO = animals.filter((animal) => animal.in_cage ===1)
+  let animalInZOO = animals.filter((animal) => animal.in_cage ==1)
   return animalInZOO
 }
 
 //קוד כפול!!! צריך לבדוק האם ניתן להעביר את הפונקציה הזו לmain מפה ומlogin
 function getvisitorHTMLCard(animal) {
   const template = `
-    <div id="cardss" class="card" style="width:300px; margin: 10px;">
+    <div id="card-${animal.name}" class="cardss" style="width:300px; margin: 10px;">
       <img class="card-img-top" src=${animal.photo} alt="תמונת ${animal.name}">
       <div class="card-body">
         <h5 class="card-title">${animal.name}</h5>
@@ -94,6 +111,7 @@ function getvisitorHTMLCard(animal) {
       </div>
     </div>
   `;
+
   return template;
 }
 
@@ -105,13 +123,7 @@ function AdvancedFilter(animals){
     return animals; 
   }
   
-  const filteredAnimals = animals.filter(animal => {
-    return (savedFilterSettings.isPredator === 'all' || animal.isPredator.toString() === savedFilterSettings.isPredator) &&
-           (savedFilterSettings.habitat === 'all' || animal.habitat === savedFilterSettings.habitat) &&
-           (!savedFilterSettings.weight || animal.weight >= parseFloat(savedFilterSettings.weight)) &&
-           (!savedFilterSettings.height || animal.height >= parseFloat(savedFilterSettings.height)) &&
-           (savedFilterSettings.color === 'all' || animal.color === savedFilterSettings.color);
-  });
+  const filteredAnimals = animals.filter(animal => setFilter(savedFilterSettings, animal));
   
   return filteredAnimals;
 }

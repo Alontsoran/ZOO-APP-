@@ -68,3 +68,22 @@
 input {
   width: 110px;
 }
+
+#animal-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#animal-cards p {
+  margin: 10px;
+}
+
+/*שיכפול קוד!! לבדוק האם אפשר למחוק את הID למעלה*/
+.cardss {
+  border: 5px solid black;
+}
+.cardss div {
+  border: 1px solid black;
+  background-color: coral;
+}
