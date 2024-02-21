@@ -67,6 +67,7 @@ function dialog(saveName) {
   });
   logout.addEventListener("click", function () {
     localStorage.setItem("selectedVisitor", saveName);
+    savedName = saveName;
     dialogopner.open = false;
   });
   let dialogopner = document.getElementById("myDialog");
@@ -74,5 +75,27 @@ function dialog(saveName) {
     const visitorsContainer = (dialogopner.open = false);
   } else {
     dialogopner.open = true;
+    searchforelement(savedName);
+  }
+}
+function searchforelement(name) {
+  const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+  const foundVisitor = visitors.find((visitor) => visitor.name === name);
+  if (foundVisitor) {
+    const template = `
+      <div name="${foundVisitor.name}+name" style="width:300px; margin: 10px;">
+        <img class="card-img-top" src="${foundVisitor.photo}" 
+        alt="Picture of ${foundVisitor.name}">
+        <div class="card-body">
+          <h5 class="card-title">${foundVisitor.name}</h5>
+          <p class="card-text">Coins: ${foundVisitor.coins}</p>
+        </div>
+      </div>
+    `;
+    const displayElement = document.getElementById("displayElementId");
+    displayElement.innerHTML = template;
+  } else {
+    const displayElement = document.getElementById("displayElementId");
+    displayElement.innerHTML = "<p>Visitor not found.</p>";
   }
 }
