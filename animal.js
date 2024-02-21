@@ -17,7 +17,6 @@ function renderRelatedAnimals() {
   // רנדרו אותן לתוך הדיב שמיועד להן עם האיידי related-animals
   // ממשו את אותה לוגיקה של כרטיסיית חיה כמו בכרטיסיות בעמוד zoo.html
   const AnimoalName = JSON.parse(localStorage.getItem("TheChosenAnimal"));
-  let animals = JSON.parse(localStorage.getItem("animals")) || []; 
   const animal = animals.find((anumal) => anumal.name === AnimoalName);
   return animal;
 }
@@ -45,6 +44,8 @@ function feedAnimal(animal , visitor) {
 function visitorGotEaten(visitor) {
   // ממשו את הלוגיקה של חיה שטורפת אורח
   visitor.alive =0;
+  localStorage.setItem('visitors', JSON.stringify(visitors));
+
   // כאן צריך להכניס דילוג
   // כאן צריך לחזור לדף ההתחברות
 
@@ -53,6 +54,7 @@ function visitorGotEaten(visitor) {
 function animalEscaped(animal) {
   //ממשו את הלוגיקה של חיה שבורחת מגן החיות
   animal.in_cage = 0;
+  localStorage.setItem('animals', JSON.stringify(animals));
 
 }
 
@@ -74,8 +76,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 // מביא את המשתמש
 function getVisitor() {
-  const visitorName = JSON.parse(localStorage.getItem("selectedVisitor")) || [];
-  let visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+  const visitorName = localStorage.getItem("selectedVisitor");
   const visitor = visitors.find((visitor) => visitor.name === visitorName)// אם רוצים לחפור אפשר להוציא את זה לפונציה נפרדת ולמנוע שכפול קוד
   return visitor;
 }
+
+let visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+let animals = JSON.parse(localStorage.getItem("animals")) || []; 

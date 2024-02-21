@@ -229,5 +229,5 @@ function logout() {
   // שימו לב לנקות את השדה המתאים בלוקל סטורג'
 }
 
-const displayElement = document.getElementById("NAVBAR");
-displayElement.innerHTML = template;
+//const displayElement = document.getElementById("NAVBAR");
+//displayElement.innerHTML = template;
