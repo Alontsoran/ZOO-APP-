@@ -45,6 +45,7 @@ function visitorGotEaten(animal, visitor) {
   // ממשו את הלוגיקה של חיה שטורפת אורח
   visitor.alive =0;
   localStorage.setItem('visitors', JSON.stringify(visitors));
+  localStorage.setItem("selectedVisitor", "");
 
   const text =  `
   <div name="${visitor.name}+name" style="width:300px; margin: 10px;">
@@ -58,7 +59,9 @@ function animalEscaped(animal) {
   //ממשו את הלוגיקה של חיה שבורחת מגן החיות
   animal.in_cage = 0;
   localStorage.setItem('animals', JSON.stringify(animals));
+  localStorage.setItem("TheChosenAnimal", "");
 
+//כאן יש בעיה עם הסטיילינג של התמונה
   const text =  `
   <div name="${animal.name}+name" style="width:300px; margin: 10px;">
   <h5 class="card-title">The ${animal.name} escaped from the zoo!!</h5>

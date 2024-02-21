@@ -142,12 +142,12 @@ input {
 /*דף החיות*/
 #InformationCard {
   display: flex;
+  flex-direction: column;
+  margin: 30px;
 }
 
 #InformationCard div {
   display: flex;
-  flex-direction: column;
-  margin: 30px;
 }
 
 #InformationCard #Container {
