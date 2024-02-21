@@ -48,21 +48,31 @@ document.addEventListener("DOMContentLoaded", function () {
     search(this.value);
   });
 });
+//functions for the dialog
 function saveName(name) {
-  var savedName = localStorage.getItem("selectedVisitor");
   if (savedName !== name) {
-    localStorage.setItem("selectedVisitor", name);
+    dialog(name);
+    if (savedName === null) {
+      dialog(name);
+    }
   }
 }
 let savedName = localStorage.getItem("selectedVisitor");
-
-// dialog part
-const dialog = document.querySelector("dialog");
-const showButton = document.querySelector("dialog + button");
-const closeButton = document.querySelector("dialog button");
-showButton.addEventListener("click", () => {
-  dialog.showModal();
-});
-closeButton.addEventListener("click", () => {
-  dialog.close();
-});
+function dialog(saveName) {
+  const visitordialog = document.getElementById("dialogid");
+  logout = document.getElementById("Logout_from_user");
+  close_ = document.getElementById("close_dialog");
+  close_.addEventListener("click", function () {
+    dialogopner.open = false;
+  });
+  logout.addEventListener("click", function () {
+    localStorage.setItem("selectedVisitor", saveName);
+    dialogopner.open = false;
+  });
+  let dialogopner = document.getElementById("myDialog");
+  if (dialogopner.open == true) {
+    const visitorsContainer = (dialogopner.open = false);
+  } else {
+    dialogopner.open = true;
+  }
+}
