@@ -50,7 +50,8 @@ function setFilter(filterKey, filterValue) {
 document.addEventListener("DOMContentLoaded", (event) => {
   // סינון ראשוני
   animalInZOO = BasicFilter();
-
+  // מיון הצבעים
+  populateColorOptions(animalInZOO);
 
   // קבלת אלמנט הטופס
   const filterForm = document.getElementById('filrerForm'); 
@@ -126,3 +127,27 @@ function AdvancedFilter(animals){
   
   return filteredAnimals;
 }
+
+
+// פונקציה שמוצאת את כל הצבעים הייחודיים ומוסיפה אותם ל-<select>
+function populateColorOptions(animalInZOO) {
+  const colorSelect = document.getElementById('color');
+  const colors = new Set(); // משתמשים ב-Set כדי להבטיח ייחודיות
+
+  // עוברים על כל החיות ומוסיפים את הצבעים ל-Set
+  animalInZOO.forEach(animal => {
+    if (animal.color) {
+      colors.add(animal.color);
+    }
+  });
+
+  // יוצרים את האפשרויות ומוסיפים אותם ל-<select>
+  colors.forEach(color => {
+    const option = document.createElement('option');
+    option.value = color;
+    option.textContent = color;
+    colorSelect.appendChild(option);
+  });
+}
+
+
