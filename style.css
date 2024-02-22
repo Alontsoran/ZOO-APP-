@@ -4,6 +4,12 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.logo {
+  height: 50px;
+  width: 50px;
+  border: solid black;
+  border-radius: 100px;
+}
 .navbar-login {
   display: flex;
   text-decoration: none;
@@ -20,11 +26,12 @@
 .logintousers {
   display: flex;
   justify-content: center;
+  position: relative;
+  padding-top: 100px;
 }
 #searchBox {
   position: relative;
   justify-content: center;
-  padding-top: 50px;
   width: 90%;
 }
 .card-nav {
