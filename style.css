@@ -142,8 +142,10 @@ input {
 /*דף החיות*/
 #InformationCard {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 30px;
+  background-color: darkblue;
+  margin-top: 80px;
 }
 
 #InformationCard div {
@@ -157,8 +159,4 @@ input {
 
 #dialogImg {
   width: 280px;
-}
-
-#image {
-  width: 300px;
 }
