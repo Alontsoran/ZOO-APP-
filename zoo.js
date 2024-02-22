@@ -102,7 +102,7 @@ function BasicFilter(){
 function getvisitorHTMLCard(animal) {
   const template = `
     <div id="card-${animal.name}" class="cardss" style="width:300px; margin: 10px;">
-      <img class="card-img-top" src=${animal.photo} alt="תמונת ${animal.name}">
+      <img class="card-img-top" src=${animal.image} alt="תמונת ${animal.name}" style="width:280px; margin: 10px;">
       <div class="card-body">
         <h5 class="card-title">${animal.name}</h5>
         <p class="card-text">diet: ${animal.isPredator ? 'Predator' : 'vegetarian'}</p>
