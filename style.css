@@ -76,6 +76,7 @@
   text-decoration: none;
   background-color: #333; /* Added for visibility, change as needed */
   z-index: 10;
+  justify-content: space-between;/*שינוי של צבי*/
 }
 
 /*דיאלוג של VISITOR*/
@@ -190,13 +191,13 @@ input {
 /*דף האינדקס*/
 #indesMaterDiv {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
 #indesMaterDiv img {
   width: 90%;
-  max-width: 400px;
+  max-width: 300px;
 }
 
 .indexDiv {
@@ -211,5 +212,6 @@ input {
 
 #indesPage h1 {
   display: flex;
+  margin-top: 150px;
   justify-content: center;
 }
