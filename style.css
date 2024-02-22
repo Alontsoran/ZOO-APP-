@@ -177,7 +177,6 @@ input {
 
 #dialogImg {
   width: 280px;
-  max-width: 90%;
 }
 
 #animal-cards-animal {
@@ -186,4 +185,31 @@ input {
   align-items: center; 
   white-space: nowrap;
   margin-top: 80px;
+}
+
+/*דף האינדקס*/
+#indesMaterDiv {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#indesMaterDiv img {
+  width: 90%;
+  max-width: 400px;
+}
+
+.indexDiv {
+  background-color: bisque;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
+  margin: 10px;
+}
+
+#indesPage h1 {
+  display: flex;
+  justify-content: center;
 }
