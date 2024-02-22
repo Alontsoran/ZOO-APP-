@@ -19,6 +19,23 @@
   width: 40px;
   height: 40px;
 }
+#ready_To_play {
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+#ready_To_play h1 {
+  color: #09d99e;
+}
+.Buttons {
+  justify-content: center;
+  display: flex;
+}
+.Buttons button {
+  border: solid #0a0707;
+  padding: 10px;
+  width: 100px;
+}
 .tab {
   margin-top: 15px;
   padding-left: 25px;
@@ -27,7 +44,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  padding-top: 100px;
+  padding-top: 10px;
 }
 #searchBox {
   position: relative;
@@ -76,7 +93,7 @@
   text-decoration: none;
   background-color: #333; /* Added for visibility, change as needed */
   z-index: 10;
-  justify-content: space-between;/*שינוי של צבי*/
+  justify-content: space-between; /*שינוי של צבי*/
 }
 
 /*דיאלוג של VISITOR*/
@@ -183,7 +200,7 @@ input {
 #animal-cards-animal {
   display: flex;
   overflow-x: auto;
-  align-items: center; 
+  align-items: center;
   white-space: nowrap;
   margin-top: 80px;
 }

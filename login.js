@@ -1,4 +1,5 @@
-localStorage.setItem("selectedVisitor", saveName);
+localStorage.setItem("selectedVisitor", savedName);
+document.getElementsByClassName("ready");
 
 function getAliveVisitors(visitors) {
   return visitors.filter((visitor) => visitor.alive === 1);
@@ -71,6 +72,7 @@ function dialog(saveName) {
     //דרישה ושמירה של הערך החדש
     localStorage.setItem("selectedVisitor", saveName);
     savedName = saveName; //דריסת ערך גלובלי
+    document.getElementById("ready").style.display = "block";
     dialogopner.open = false; // סיום פעולה וסגירה
   });
   let dialogopner = document.getElementById("myDialog");
