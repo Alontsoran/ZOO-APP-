@@ -134,6 +134,7 @@ function generateDataset() {
       color: "brown",
       habitat: "land",
       in_cage: 1,
+      image: "https://i.ibb.co/2PV3L7h/Lion.webp",
     },
     {
       name: "Elephant",
@@ -143,6 +144,7 @@ function generateDataset() {
       color: "grey",
       habitat: "land",
       in_cage: 1,
+      image: "https://i.ibb.co/MGwqJ1p/Elephant.webp",
     },
     {
       name: "Giraffe",
@@ -152,6 +154,7 @@ function generateDataset() {
       color: "brown",
       habitat: "land",
       in_cage: 1,
+      image: "https://i.ibb.co/GHcvYwT/Giraffe.webp",
     },
     {
       name: "Tiger",
@@ -161,6 +164,7 @@ function generateDataset() {
       color: "brown",
       habitat: "land",
       in_cage: 1,
+      image: "https://i.ibb.co/TvWrNTG/Tiger.webp",
     },
     {
       name: "Monkey",
@@ -170,6 +174,7 @@ function generateDataset() {
       color: "brown",
       habitat: "land",
       in_cage: 1,
+      image: "https://i.ibb.co/L6KWCGV/Monkey.webp",
     },
     {
       name: "Kangaroo",
@@ -179,6 +184,7 @@ function generateDataset() {
       color: "brown",
       habitat: "land",
       in_cage: 1,
+      image: "https://i.ibb.co/tH1Gvzs/Kangaroo.webp",
     },
     {
       name: "Penguin",
@@ -188,6 +194,7 @@ function generateDataset() {
       color: "brown",
       habitat: "sea",
       in_cage: 1,
+      image: "https://i.ibb.co/FhpDFgv/Penguin.webp",
     },
     {
       name: "Zebra",
@@ -197,6 +204,7 @@ function generateDataset() {
       color: "brown",
       habitat: "land",
       in_cage: 1,
+      image: "https://i.ibb.co/TrL7Pn9/Zebra.webp",
     },
     {
       name: "Cheetah",
@@ -206,6 +214,7 @@ function generateDataset() {
       color: "brown",
       habitat: "land",
       in_cage: 1,
+      image: "https://i.ibb.co/DKZYs55/Cheetah.webp",
     },
   ];
 
