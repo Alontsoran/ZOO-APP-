@@ -133,6 +133,10 @@ input {
 }
 
 #animal-cards p {
+  margin: 20px;
+}
+
+.card-title {
   margin: 10px;
 }
 
