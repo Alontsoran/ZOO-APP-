@@ -9,7 +9,7 @@ function renderAnimal(animal) {
   document.getElementById('color').textContent = animal.color;
   document.getElementById('habitat').textContent = animal.habitat;
   document.getElementById('isPredator').textContent = animal.isPredator ? 'Predator' : 'Herbivore';
-  document.getElementById('image').innerHTML = `<img src="${animal.image}" alt="${animal.name}" style="width:280px; margin: 10px;" />`;
+  document.getElementById('image').innerHTML = `<img src="${animal.image}" alt="${animal.name}" style="width:280px; margin: 10px;   max-width: 90%;" />`;
 }
 
 function renderRelatedAnimals() {
@@ -136,8 +136,8 @@ function renderAvailableAnimals(animals) {
 
 function getvisitorHTMLCard(animal) {
   const template = `
-    <div id="card-${animal.name}" class="cardss" style="width:300px; margin: 10px;">
-      <img class="card-img-top" src=${animal.image} alt="תמונת ${animal.name}" style="width:280px; margin: 10px;">
+    <div id="card-${animal.name}" class="cardss" style="width:200px; margin: 10px;">
+      <img class="card-img-top" src=${animal.image} alt="תמונת ${animal.name}" style="width:180px; margin: 10px;">
       <div class="card-body">
         <h3 class="card-title">${animal.name}</h3>
         <p class="card-text">diet: ${animal.isPredator ? 'Predator' : 'vegetarian'}</p>
