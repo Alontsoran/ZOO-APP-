@@ -89,7 +89,7 @@
 /*הסטייל של דף הZOO*/
 #forms {
   background-color: rgb(207, 204, 198);
-  margin: 80px 40px 20px;
+  margin: 120px 40px 20px;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
@@ -97,6 +97,7 @@
   display: flex;
   flex-direction: row;
   width: 700px;
+  justify-content: space-evenly;
 }
 
 #filrerForm label {
