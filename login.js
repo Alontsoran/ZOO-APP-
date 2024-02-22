@@ -1,4 +1,5 @@
-// This function now serves as the single source of truth for filtering alive visitors
+localStorage.setItem("selectedVisitor", saveName);
+
 function getAliveVisitors(visitors) {
   return visitors.filter((visitor) => visitor.alive === 1);
 }

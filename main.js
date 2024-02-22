@@ -1,6 +1,8 @@
+generateDataset();
 function generateDataset() {
   visitor = localStorage.getItem("selectedVisitor");
-  if (visitor == "") localStorage.setItem("selectedVisitor", savedName);
+  if (visitor === "" || visitor === undefined)
+    localStorage.setItem("selectedVisitor", savedName);
   let visitors = [
     {
       name: "JohnSmith",
