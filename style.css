@@ -96,8 +96,8 @@
 #filrerForm {
   display: flex;
   flex-direction: row;
-  width: 700px;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 #filrerForm label {
@@ -149,19 +149,25 @@ input {
 #InformationCard {
   display: flex;
   flex-direction: row;
-  margin: 30px;
+  margin: auto;
   background-color: darkblue;
   margin-top: 80px;
   color: #f2f2f2;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
+  max-width: 700px;
 }
 
 #InformationCard div {
   display: flex;
+  justify-content: space-evenly;
 }
 
 #InformationCard #Container {
   display: flex;
   flex-direction: column;
+  margin: 20px;
 }
 
 #dialogImg {
