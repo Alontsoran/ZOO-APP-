@@ -124,7 +124,7 @@ function renderAvailableAnimals(animals) {
   const animalsHTML = animals.map(getvisitorHTMLCard).join("");
   animalsContainer.innerHTML = animalsHTML;
 
-  animalInZOO.forEach(animal => {
+  animals.forEach(animal => {
     const card = document.getElementById(`card-${animal.name}`);
     if (card) {
       card.addEventListener('click', () => {
@@ -148,3 +148,7 @@ function getvisitorHTMLCard(animal) {
   return template;
 }
 
+function visitAnimal(animalName) {
+  localStorage.setItem('TheChosenAnimal', JSON.stringify(animalName));
+  window.location.href = './animal.html';
+}
