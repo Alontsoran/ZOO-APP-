@@ -9,7 +9,7 @@ function renderAnimal(animal) {
   document.getElementById('color').textContent = animal.color;
   document.getElementById('habitat').textContent = animal.habitat;
   document.getElementById('isPredator').textContent = animal.isPredator ? 'Predator' : 'Herbivore';
-  document.getElementById('image').innerHTML = `<img src="${animal.photo}" alt="${animal.name}" />`;
+  document.getElementById('image').innerHTML = `<img src="${animal.image}" alt="${animal.name}" />`;
 }
 
 function renderRelatedAnimals() {
