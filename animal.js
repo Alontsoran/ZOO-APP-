@@ -61,7 +61,6 @@ function animalEscaped(animal) {
   localStorage.setItem('animals', JSON.stringify(animals));
   localStorage.setItem("TheChosenAnimal", "");
 
-//כאן יש בעיה עם הסטיילינג של התמונה
   const text =  `
   <div name="${animal.name}+name" style="width:300px; margin: 10px;">
   <h5 class="card-title">The ${animal.name} escaped from the zoo!!</h5>
@@ -86,6 +85,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // מביא נתונים ומרנדר את הדף
   const animal = renderRelatedAnimals();
   renderAnimal(animal);
+  
+  //יוצר את הכרטיסיות למטה
+  renderAvailableAnimals(BasicFilter())
 
   // מביא את הנתונים של המשתמש המחובר
   const visitor = getVisitor();
@@ -106,4 +108,43 @@ function getVisitor() {
 
 let visitors = JSON.parse(localStorage.getItem("visitors")) || [];
 let animals = JSON.parse(localStorage.getItem("animals")) || []; 
+
+//****** */
+//אמא של השיכפול קוד כי הקטע עם הפונקציות בMAIN לא עובד!!!!!
+//וגם כתוב למעלה לשכפל את אותה הלוגיקה מדף zoo אז אני מניח שזו היתה כוונת המשורר
+//******** */
+function BasicFilter(){
+  let animalInZOO = animals.filter((animal) => animal.in_cage == 1)
+  return animalInZOO
+}
+
+function renderAvailableAnimals(animals) {
+  const animalsContainer = document.getElementById("animal-cards-animal");
+  animalsContainer.innerHTML = "";
+  const animalsHTML = animals.map(getvisitorHTMLCard).join("");
+  animalsContainer.innerHTML = animalsHTML;
+
+  animalInZOO.forEach(animal => {
+    const card = document.getElementById(`card-${animal.name}`);
+    if (card) {
+      card.addEventListener('click', () => {
+        visitAnimal(animal.name);
+      });
+    }
+  });
+}
+
+function getvisitorHTMLCard(animal) {
+  const template = `
+    <div id="card-${animal.name}" class="cardss" style="width:300px; margin: 10px;">
+      <img class="card-img-top" src=${animal.image} alt="תמונת ${animal.name}" style="width:280px; margin: 10px;">
+      <div class="card-body">
+        <h3 class="card-title">${animal.name}</h3>
+        <p class="card-text">diet: ${animal.isPredator ? 'Predator' : 'vegetarian'}</p>
+        <p class="card-text">Habitat: ${animal.habitat}</p>
+      </div>
+    </div>
+  `;
+  return template;
+}
 

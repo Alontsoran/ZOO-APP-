@@ -177,3 +177,11 @@ input {
 #dialogImg {
   width: 280px;
 }
+
+#animal-cards-animal {
+  display: flex;
+  overflow-x: auto;
+  align-items: center; 
+  white-space: nowrap;
+  margin-top: 80px;
+}
