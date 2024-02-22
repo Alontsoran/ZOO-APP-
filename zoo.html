@@ -9,41 +9,42 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-
+    <nav id="navbar">
+      <div class="tab">Lego zoo</div>
+      <div class="tab" id="visitornav"></div>
+    </nav>
 
     <div id="forms">
       <form id="filrerForm">
-
         <div>
-            <label for="isPredator">predator:</label>
+          <label for="isPredator">predator:</label>
           <select id="isPredator">
             <option value="All">All</option>
             <option value="true">yes</option>
             <option value="false">no</option>
           </select>
         </div>
-        
+
         <div>
-            <label for="habitat">Habitat:</label>
+          <label for="habitat">Habitat:</label>
           <select id="habitat">
             <option value="All">All</option>
             <option value="land">Land</option>
             <option value="sea">Sea</option>
           </select>
         </div>
-        
+
         <div>
           <label for="weight">Minimum Weight:</label>
-          <input type="number" id="weight" min="0">
+          <input type="number" id="weight" min="0" />
         </div>
-       
+
         <div>
           <label for="height">Minimum Height:</label>
-          <input type="number" id="height" min="0">
+          <input type="number" id="height" min="0" />
         </div>
-  
-  
-  <!--כאן צריך להכניס אפשרות סינון משוכללת לצבעים כל בסיס הצבעים שיש לחיות, זה דורש עבודה עם הJS-->
+
+        <!--כאן צריך להכניס אפשרות סינון משוכללת לצבעים כל בסיס הצבעים שיש לחיות, זה דורש עבודה עם הJS-->
         <div>
           <label for="color">Color:</label>
           <select id="color">
@@ -53,11 +54,10 @@
             <option value="grey">grey</option>
           </select>
         </div>
-  
+
         <button type="submit">Filter</button>
       </form>
     </div>
-   
 
     <div id="animal-cards"></div>
     <script src="zoo.js"></script>
