@@ -245,6 +245,13 @@ function logout() {
   // שימו לב לנקות את השדה המתאים בלוקל סטורג'
 }
 
+function visitorsnav() {
+  const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+  Options = document.getElementById("visitor-select");
+  visitors.forEach((visitor) => {
+    options.innerHTML('<option value="">--Please choose an option--</option>');
+  });
+}
 // Assuming this populates your visitors somehow
 document.addEventListener("DOMContentLoaded", function () {
   function updateNavbar() {
