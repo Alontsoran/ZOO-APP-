@@ -1,5 +1,5 @@
 //"First set up of selected user"
-
+localStorage.setItem("selectedVisitor", "");
 document.getElementsByClassName("ready");
 //סינון כל החיים
 
