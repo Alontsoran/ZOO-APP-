@@ -276,7 +276,10 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
     `;
   }
-
+  const clicktohomepage = document.getElementsByClassName(`logo`);
+  zoo.addEventListener("click", () => {
+    window.location.href = "./login.html";
+  });
   updateNavbar(); // Initial navbar update
 
   // Function to check for changes in localStorage every second
