@@ -5,7 +5,7 @@ if (visitor === undefined)
 function generateDataset() {
   visitor = localStorage.getItem("selectedVisitor");
   if (visitor === "" || visitor === undefined)
-    localStorage.setItem("selectedVisitor", savedName);
+    localStorage.setItem("selectedVisitor", " ");
   let visitors = [
     {
       name: "JohnSmith",
@@ -289,7 +289,9 @@ function updateNavbar() {
   if (navbar && visitor) {
     navbar.innerHTML = template(visitor);
   } else {
-    console.error("Navbar element or visitor not found."); // שליחת תגובה לקנוסול
+    console.error("Navbar element or visitor not found.");
+
+    // שליחת תגובה לקנוסול
   }
 }
 function findvisitor(name) {

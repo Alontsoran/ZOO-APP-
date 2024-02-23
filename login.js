@@ -1,5 +1,11 @@
-//"First set up of selected user"
-localStorage.setItem("selectedVisitor", " ");
+//"First set up of selected user"// בוצע תיקון באג
+if (
+  localStorage.getItem("selectedVisitor") == "" ||
+  localStorage.getItem("selectedVisitor") == undefined
+) {
+  localStorage.setItem("selectedVisitor", " ");
+}
+
 document.getElementsByClassName("ready");
 //סינון כל החיים
 
