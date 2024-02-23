@@ -244,14 +244,21 @@ function logout() {
   //ממשו את הלוגיקה שמתנתקת מאורח מחובר
   // שימו לב לנקות את השדה המתאים בלוקל סטורג'
 }
-
+Options = document.getElementById("visitor-select");
+visitorsnav();
 function visitorsnav() {
   const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
   Options = document.getElementById("visitor-select");
   visitors.forEach((visitor) => {
-    options.innerHTML('<option value="">--Please choose an option--</option>');
+    const Option = document.createElement("option");
+    Option.textContent = visitor.name;
+    Options.add(Option);
   });
 }
+Options.addEventListener("change", function () {
+  var selectedOption = this.options[this.selectedIndex];
+  localStorage.setItem("selectedVisitor", selectedOption.text);
+});
 // Assuming this populates your visitors somehow
 document.addEventListener("DOMContentLoaded", function () {
   function updateNavbar() {
@@ -265,7 +272,6 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Navbar element or visitor not found.");
     }
   }
-
   function findvisitor(name) {
     const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
     return visitors.find((visitor) => visitor.name === name);

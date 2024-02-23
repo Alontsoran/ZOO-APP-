@@ -111,3 +111,20 @@ function template(foundVisitor) {
     `;
   return template;
 }
+document.addEventListener("DOMContentLoaded", function () {
+  var iframe = document.getElementById("frame");
+
+  iframe.addEventListener("load", function () {
+    try {
+      var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+      // ניתן לגשת לאלמנטים ב-DOM של הדף המוטען ב-iframe
+      var specificElement = iframeDoc.getElementById("select_visitor");
+      if (specificElement) {
+        // שינוי האלמנט לפי הצורך
+        specificElement.style.display = "none";
+      }
+    } catch (error) {
+      console.error("Cannot access iframe content:", error);
+    }
+  });
+});
