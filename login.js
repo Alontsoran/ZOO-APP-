@@ -1,9 +1,8 @@
+//"First set up of selected user"
 localStorage.setItem("selectedVisitor", savedName);
 document.getElementsByClassName("ready");
+//סינון כל החיים
 
-function getAliveVisitors(visitors) {
-  return visitors.filter((visitor) => visitor.alive === 1);
-}
 document.getElementById("click");
 
 function displayVisitors(visitors) {
@@ -15,7 +14,7 @@ function displayVisitors(visitors) {
   const visitorsHTML = visitors.map(getvisitorHTMLCard).join("");
   visitorsContainer.innerHTML = visitorsHTML;
 }
-
+//card template in the html
 function getvisitorHTMLCard(visitor) {
   var template = `
     <div id="cardss" <div id="cardss" class="card"  class="card" name="${visitor.name}+name" style="width:300px; margin: 10px;">
@@ -31,6 +30,7 @@ function getvisitorHTMLCard(visitor) {
   var wrapper = template;
   return template;
 }
+//search for a player i nthe search box
 function search(input) {
   const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
   let filteredUsers = getAliveVisitors(visitors).filter((visitor) =>
@@ -39,6 +39,7 @@ function search(input) {
   console.log(filteredUsers);
   displayVisitors(filteredUsers);
 }
+//display players
 function displayaliveVisitors() {
   const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
   displayVisitors(getAliveVisitors(visitors));
@@ -60,7 +61,7 @@ function saveName(name) {
   }
 }
 //ערך גלובלי
-var savedName = localStorage.getItem("selectedVisitor");
+var savedName = getselectdvisitor();
 function dialog(saveName) {
   logout = document.getElementById("Logout_from_user"); //כפתור ניתוק
   close_ = document.getElementById("close_dialog"); //כפתור ביטול פעולה
@@ -98,6 +99,7 @@ function searchforelement(name) {
     displayElement.innerHTML = "<p>Visitor not found.</p>";
   }
 }
+//template dialog
 function template(foundVisitor) {
   const template = `
       <div name="${foundVisitor.name}+name" style="width:300px; margin: 10px;">

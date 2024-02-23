@@ -244,10 +244,27 @@ function logout() {
   //ממשו את הלוגיקה שמתנתקת מאורח מחובר
   // שימו לב לנקות את השדה המתאים בלוקל סטורג'
 }
+//לקיחת המערך של כל המבקרים
+function getvisitorlist() {
+  return (
+    JSON.parse(localStorage.getItem("visitors")) ||
+    [].filter((visitor) => visitor.alive === 1)
+  );
+}
+//אורח נבחר selected
+function getselectdvisitor() {
+  return localStorage.getItem("selectedVisitor");
+}
+//פילטור
+function getAliveVisitors(visitors) {
+  return visitors.filter((visitor) => visitor.alive === 1);
+}
+//תפריט אפשרויות בNAV
 Options = document.getElementById("visitor-select");
 visitorsnav();
+//יצירת האופציה לבחור מהתפריט
 function visitorsnav() {
-  const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+  const visitors = getvisitorlist();
   Options = document.getElementById("visitor-select");
   visitors.forEach((visitor) => {
     const Option = document.createElement("option");
@@ -255,28 +272,30 @@ function visitorsnav() {
     Options.add(Option);
   });
 }
+//המתנה לבחירה אחרת של שחקן
 Options.addEventListener("change", function () {
   var selectedOption = this.options[this.selectedIndex];
   localStorage.setItem("selectedVisitor", selectedOption.text);
 });
-// Assuming this populates your visitors somehow
+//פונקציות מרכזיות
 document.addEventListener("DOMContentLoaded", function () {
+  //עידכון הדמות בNAV
   function updateNavbar() {
-    const nameinlocal = localStorage.getItem("selectedVisitor");
-    const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+    const nameinlocal = getselectdvisitor();
+    const visitors = getvisitorlist();
     const visitor = findvisitor(nameinlocal);
     const navbar = document.getElementById("visitornav");
     if (navbar && visitor) {
       navbar.innerHTML = template(visitor);
     } else {
-      console.error("Navbar element or visitor not found.");
+      console.error("Navbar element or visitor not found."); // שליחת תגובה לקנוסול
     }
   }
   function findvisitor(name) {
-    const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+    const visitors = getvisitorlist();
     return visitors.find((visitor) => visitor.name === name);
   }
-
+  // TEMPLATE TO THE NAVBAR
   function template(foundVisitor) {
     return `
       <div class="navbar-login">
@@ -292,10 +311,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateNavbar(); // Initial navbar update
 
-  // Function to check for changes in localStorage every second
-  let previousValue = localStorage.getItem("selectedVisitor"); // Initial value
+  // THIS FUNCTION CHECK EVERY ! MIL SECOND IF THE DATA CHANGED
+  let previousValue = getselectdvisitor(); // Initial value
   setInterval(function () {
-    const currentValue = localStorage.getItem("selectedVisitor");
+    const currentValue = getselectdvisitor();
     if (previousValue !== currentValue) {
       console.log('Change detected in localStorage for key "selectedVisitor".');
       updateNavbar(); // Update the navbar with the new visitor info
