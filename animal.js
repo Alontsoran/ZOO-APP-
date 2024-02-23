@@ -26,7 +26,7 @@ function feedAnimal(animal , visitor) {
   // במידה ואין מספיק מטבעות, טפלו בהתאם להנחיות במטלה
   if (parseInt(visitor.coins) >= 2){
     visitor.coins-=2;
-    console.log(visitor.coins);
+    alert("Thanks for feeding me!");
 
     localStorage.setItem('visitors', JSON.stringify(visitors));
     window.location.reload();
@@ -109,10 +109,7 @@ function getVisitor() {
 let visitors = JSON.parse(localStorage.getItem("visitors")) || [];
 let animals = JSON.parse(localStorage.getItem("animals")) || []; 
 
-//****** */
-//אמא של השיכפול קוד כי הקטע עם הפונקציות בMAIN לא עובד!!!!!
-//וגם כתוב למעלה לשכפל את אותה הלוגיקה מדף zoo אז אני מניח שזו היתה כוונת המשורר
-//******** */
+//יוצר את הבר למטה
 function BasicFilter(){
   let animalInZOO = animals.filter((animal) => animal.in_cage == 1)
   return animalInZOO
