@@ -115,7 +115,8 @@ function BasicFilter(){
   return animalInZOO
 }
 
-function renderAvailableAnimals(animals) {
+function renderAvailableAnimals(animalsInzoo) {
+  FilterByLivingEnvironment(animalsInzoo)
   const animalsContainer = document.getElementById("animal-cards-animal");
   animalsContainer.innerHTML = "";
   const animalsHTML = animals.map(getvisitorHTMLCard).join("");
@@ -148,4 +149,12 @@ function getvisitorHTMLCard(animal) {
 function visitAnimal(animalName) {
   localStorage.setItem('TheChosenAnimal', JSON.stringify(animalName));
   window.location.href = './animal.html';
+}
+
+//סינון לפי סביבת מחיה
+function FilterByLivingEnvironment(animalsInzoo) {
+  const AnimoalName = JSON.parse(localStorage.getItem("TheChosenAnimal"));
+  const animal = animalsInzoo.find((animal) => animal.name === AnimoalName);
+  const animals = animalsInzoo.filter((animal_) => animal_.habitat === animal.habitat);
+  return animals;
 }
