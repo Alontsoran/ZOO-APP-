@@ -255,7 +255,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (navbar && visitor) {
       navbar.innerHTML = template(visitor);
     } else {
-      document.getElementById("ready").style.display = "none";
       console.error("Navbar element or visitor not found.");
     }
   }
