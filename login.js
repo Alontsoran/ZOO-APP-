@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //"First set up of selected user"// בוצע תיקון באג
 if (
   localStorage.getItem("selectedVisitor") == "" ||
@@ -81,7 +80,6 @@ function dialog(saveName) {
     localStorage.setItem("selectedVisitor", saveName);
     savedName = saveName; //דריסת ערך גלובלי
     updateNavbar();
-    document.getElementById("ready").style.display = "block";
     dialogopner.open = false; // סיום פעולה וסגירה
   });
   let dialogopner = document.getElementById("myDialog");

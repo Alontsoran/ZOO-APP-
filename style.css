@@ -4,6 +4,13 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+#nav_body {
+  height: 10px;
+}
+nav {
+  height: min-content;
+  border-bottom: solid black 10px;
+}
 .title {
   width: 100px;
   overflow: hidden; /* Ensures content exceeding the width is hidden */
@@ -43,7 +50,6 @@
   border-radius: 1000px;
 }
 #ready_To_play {
-  padding-top: 100px;
   display: flex;
   justify-content: center;
 }
@@ -51,20 +57,22 @@
   color: #09d99e;
 }
 .Buttons {
-  justify-content: center;
+  flex-direction: column;
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 .Buttons button {
   border: solid #0a0707;
-  padding: 10px;
   width: 100px;
+  height: 40px;
 }
 .tab {
   margin-top: 15px;
 }
 iframe {
   width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   z-index: 10;
