@@ -14,3 +14,8 @@ const login_ = document.getElementById(`loginDiv`);
 login_.addEventListener('click', () => {
     window.location.href = './login.html';
 });
+
+const dashboard = document.getElementById(`dashboardDiv`);
+dashboard.addEventListener('click', () => {
+    window.location.href = './dashboard.html';
+});
