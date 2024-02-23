@@ -1,5 +1,5 @@
 //"First set up of selected user"
-
+localStorage.setItem("selectedVisitor", " ");
 document.getElementsByClassName("ready");
 //סינון כל החיים
 
@@ -73,6 +73,7 @@ function dialog(saveName) {
     //דרישה ושמירה של הערך החדש
     localStorage.setItem("selectedVisitor", saveName);
     savedName = saveName; //דריסת ערך גלובלי
+    updateNavbar();
     document.getElementById("ready").style.display = "block";
     dialogopner.open = false; // סיום פעולה וסגירה
   });

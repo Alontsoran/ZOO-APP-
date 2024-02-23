@@ -280,3 +280,7 @@ input {
 #animalPage {
   background-image: url("./photos/backgrounds/lego_space_zoo.jpeg");
 }
+/*form signup */
+.col {
+  margin-top: 150px;
+}

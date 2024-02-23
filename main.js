@@ -279,26 +279,26 @@ Options.addEventListener("change", function () {
   localStorage.setItem("selectedVisitor", selectedOption.text);
 });
 //פונקציות מרכזיות
-document.addEventListener("DOMContentLoaded", function () {
-  //עידכון הדמות בNAV
-  function updateNavbar() {
-    const nameinlocal = getselectdvisitor();
-    const visitors = getvisitorlist();
-    const visitor = findvisitor(nameinlocal);
-    const navbar = document.getElementById("visitornav");
-    if (navbar && visitor) {
-      navbar.innerHTML = template(visitor);
-    } else {
-      console.error("Navbar element or visitor not found."); // שליחת תגובה לקנוסול
-    }
+
+//עידכון הדמות בNAV
+function updateNavbar() {
+  const nameinlocal = getselectdvisitor();
+  const visitors = getvisitorlist();
+  const visitor = findvisitor(nameinlocal);
+  const navbar = document.getElementById("visitornav");
+  if (navbar && visitor) {
+    navbar.innerHTML = template(visitor);
+  } else {
+    console.error("Navbar element or visitor not found."); // שליחת תגובה לקנוסול
   }
-  function findvisitor(name) {
-    const visitors = getvisitorlist();
-    return visitors.find((visitor) => visitor.name === name);
-  }
-  // TEMPLATE TO THE NAVBAR
-  function template(foundVisitor) {
-    return `
+}
+function findvisitor(name) {
+  const visitors = getvisitorlist();
+  return visitors.find((visitor) => visitor.name === name);
+}
+// TEMPLATE TO THE NAVBAR
+function template(foundVisitor) {
+  return `
       <div class="navbar-login">
         <img class="card-img-top" src="${foundVisitor.photo}" 
         alt="Picture of ${foundVisitor.name}">
@@ -308,18 +308,17 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
       </div>
     `;
+}
+
+updateNavbar(); // Initial navbar update
+
+// THIS FUNCTION CHECK EVERY ! MIL SECOND IF THE DATA CHANGED
+let previousValue = getselectdvisitor(); // Initial value
+setInterval(function () {
+  const currentValue = getselectdvisitor();
+  if (previousValue !== currentValue) {
+    console.log('Change detected in localStorage for key "selectedVisitor".');
+    updateNavbar(); // Update the navbar with the new visitor info
+    previousValue = currentValue;
   }
-
-  updateNavbar(); // Initial navbar update
-
-  // THIS FUNCTION CHECK EVERY ! MIL SECOND IF THE DATA CHANGED
-  let previousValue = getselectdvisitor(); // Initial value
-  setInterval(function () {
-    const currentValue = getselectdvisitor();
-    if (previousValue !== currentValue) {
-      console.log('Change detected in localStorage for key "selectedVisitor".');
-      updateNavbar(); // Update the navbar with the new visitor info
-      previousValue = currentValue;
-    }
-  }, 1);
-});
+}, 1);

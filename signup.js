@@ -2,6 +2,7 @@ function createNewVisitor(event) {
   // ביטול התנהגות דיפולטיבית של שליחת טופס
   // קראו עוד כאן: https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
   event.preventDefault();
+  const validateFormInputs = () => {};
 
   /**
   צרו אורח חדש כאן 👇
@@ -9,10 +10,7 @@ function createNewVisitor(event) {
   כמו שיותר מפוצל וטהור - פונקציות עם מטרה יחידה ושם משמעותי שמסביר מה הפונקציה עושה ומחזירה
   דוגמא:
 
-  const validateFormInputs = () => {
-    בודק האם האינפוטים קיימים ויש בהם ערך
-    מחזיר האם תקין או לא (בוליאני)
-  }
+  
 
   const visitorExists = (name) => {
     מקבל שם ומחזיר תשובה האם השם האורח קיים
@@ -33,6 +31,7 @@ const createForm = document.getElementById("create-visitor-form");
 if (createForm) {
   createForm.addEventListener("submit", createNewVisitor);
 }
+
 //הסרת שמות אנשים מNAV
 document.addEventListener("DOMContentLoaded", function () {
   var iframe = document.getElementById("frame");
