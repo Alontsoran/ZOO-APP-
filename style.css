@@ -40,6 +40,13 @@
   margin-top: 15px;
   padding-left: 25px;
 }
+iframe {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
 .logintousers {
   display: flex;
   justify-content: center;
@@ -88,12 +95,10 @@
   width: 100%; /* This ensures the navbar extends full width */
   display: flex;
   color: #f2f2f2;
-  text-align: center;
   padding: 14px;
   text-decoration: none;
   background-color: #333; /* Added for visibility, change as needed */
   z-index: 10;
-  justify-content: space-between; /*שינוי של צבי*/
 }
 
 /*דיאלוג של VISITOR*/
