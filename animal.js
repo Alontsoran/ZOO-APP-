@@ -116,7 +116,7 @@ function BasicFilter(){
 }
 
 function renderAvailableAnimals(animalsInzoo) {
-  FilterByLivingEnvironment(animalsInzoo)
+  animals = FilterByLivingEnvironment(animalsInzoo);
   const animalsContainer = document.getElementById("animal-cards-animal");
   animalsContainer.innerHTML = "";
   const animalsHTML = animals.map(getvisitorHTMLCard).join("");
