@@ -63,7 +63,7 @@
   background-color: coral;
 }
 #login_body {
-  background: url(./photos/Z9_Jungle.jpg);
+  background: url(./photos/backgrounds/Z9_Jungle.jpg);
 }
 #nav-bar {
   background-color: aliceblue;
@@ -235,16 +235,15 @@ input {
 
 /*תמונות רקע*/
 .Page {
-  background-size: cover; 
-  background-repeat: no-repeat; 
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center center;
 }
 
 #zooPage {
-  background-image: url('./photos/backgrounds/space_zoo_background.jpeg');
+  background-image: url("./photos/backgrounds/space_zoo_background.jpeg");
 }
 
 #indesPage {
-  background-image: url('./photos/backgrounds/A_vibrant_and_imaginative_background_image_for_a_s.jpeg');
+  background-image: url("./photos/backgrounds/A_vibrant_and_imaginative_background_image_for_a_s.jpeg");
 }
-
