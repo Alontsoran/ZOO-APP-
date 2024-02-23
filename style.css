@@ -37,7 +37,9 @@ nav {
   margin-top: -30;
   height: 100px;
 }
-
+#image {
+  border-radius: 1000px;
+}
 .navbar-login {
   display: flex;
   text-decoration: none;
@@ -53,8 +55,8 @@ nav {
   display: flex;
   justify-content: center;
 }
-#ready_To_play h1 {
-  color: #09d99e;
+.Buttons h1 {
+  color: #ffffff;
 }
 .Buttons {
   flex-direction: column;
@@ -83,6 +85,10 @@ iframe {
   justify-content: center;
   position: relative;
   padding-top: 10px;
+}
+.card-img-top {
+  border-radius: 1000px;
+  border: solid black 3px;
 }
 #searchBox {
   position: relative;
@@ -209,7 +215,7 @@ input {
   display: flex;
   flex-direction: row;
   margin: auto;
-  background-color: darkblue;
+  background-color: rgba(15, 15, 55, 0.8);
   margin-top: 140px;
   color: #f2f2f2;
   align-items: flex-start;
@@ -228,6 +234,9 @@ input {
   display: flex;
   flex-direction: column;
   margin: 20px;
+}
+#InformationCard img {
+  border-radius: 100000px;
 }
 
 #dialogImg {
