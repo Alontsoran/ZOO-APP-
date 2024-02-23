@@ -232,3 +232,15 @@ input {
   margin-top: 150px;
   justify-content: center;
 }
+
+/*תמונות רקע*/
+.Page {
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center center;
+}
+
+#zooPage {
+  background-image: url('./photos/backgrounds/space_zoo_background.jpeg');
+}
+
