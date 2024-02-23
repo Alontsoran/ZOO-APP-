@@ -24,11 +24,13 @@
   border-radius: 100px;
   margin-top: -30;
   justify-content: center;
+  display: flex;
 }
 #logo2 {
   margin-top: -30;
-  margin-left: 100px;
   height: 100px;
+}
+#tabhome {
 }
 .navbar-login {
   display: flex;
@@ -60,8 +62,6 @@
 }
 .tab {
   margin-top: 15px;
-  padding-left: 60px;
-  display: flex;
 }
 iframe {
   width: 100%;
@@ -69,6 +69,7 @@ iframe {
   top: 0;
   left: 0;
   z-index: 10;
+  max-width: 1920px;
 }
 .logintousers {
   display: flex;
@@ -122,6 +123,7 @@ iframe {
   text-decoration: none;
   background-color: #333; /* Added for visibility, change as needed */
   z-index: 10;
+  justify-content: space-around;
 }
 
 /*דיאלוג של VISITOR*/
