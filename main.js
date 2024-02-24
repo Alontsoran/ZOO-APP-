@@ -6,6 +6,57 @@ function generateDataset() {
   visitor = localStorage.getItem("selectedVisitor");
   if (visitor === "" || visitor === undefined)
     localStorage.setItem("selectedVisitor", " ");
+
+
+    let animals_visit = [ //יצירת ערך שמתעד את הפעילות של המשתמש, כל משתמש מקבל אחד
+    {
+      name: "Lion",
+      visits: 0,
+      feeding: 0,
+    },
+    {
+      name: "Elephant",
+      visits: 0,
+      feeding: 0,
+    },
+    {
+      name: "Giraffe",
+      visits: 0,
+      feeding: 0,
+    },
+    {
+      name: "Tiger",
+      visits: 0,
+      feeding: 0,
+    },
+    {
+      name: "Monkey",
+      visits: 0,
+      feeding: 0,
+    },
+    {
+      name: "Kangaroo",
+      visits: 0,
+      feeding: 0,
+    },
+    {
+      name: "Penguin",
+      visits: 0,
+      feeding: 0,
+    },
+    {
+      name: "Zebra",
+      visits: 0,
+      feeding: 0,
+    },
+    {
+      name: "Cheetah",
+      visits: 0,
+      feeding: 0,
+    },
+  ];
+  
+  
   let visitors = [
     {
       name: "JohnSmith",
@@ -245,54 +296,6 @@ function generateDataset() {
     },
   ];
 
-  let animals_visit = [ //יצירת ערך שמתעד את הפעילות של המשתמש, כל משתמש מקבל אחד
-    {
-      name: "Lion",
-      visits: 0,
-      feeding: 0,
-    },
-    {
-      name: "Elephant",
-      visits: 0,
-      feeding: 0,
-    },
-    {
-      name: "Giraffe",
-      visits: 0,
-      feeding: 0,
-    },
-    {
-      name: "Tiger",
-      visits: 0,
-      feeding: 0,
-    },
-    {
-      name: "Monkey",
-      visits: 0,
-      feeding: 0,
-    },
-    {
-      name: "Kangaroo",
-      visits: 0,
-      feeding: 0,
-    },
-    {
-      name: "Penguin",
-      visits: 0,
-      feeding: 0,
-    },
-    {
-      name: "Zebra",
-      visits: 0,
-      feeding: 0,
-    },
-    {
-      name: "Cheetah",
-      visits: 0,
-      feeding: 0,
-    },
-  ];
-
 
   if (localStorage.getItem("visitors")) {
     visitors = JSON.parse(localStorage.getItem("visitors"));
@@ -393,3 +396,19 @@ setInterval(function () {
     previousValue = currentValue;
   }
 }, 1);
+
+//מעדכן את הכניסות
+window.addEventListener('storage', function(event) { // מזהה שינוי בלוקל סטוריג
+  if (event.key === 'TheChosenAnimal') {
+    const visitorName = localStorage.getItem("selectedVisitor");
+    if (!visitorName) { //בודק שיש משתנה מחובר
+      alert("You need to be logged-in");
+      return;
+    }
+    visitors = JSON.parse(localStorage.getItem("visitors")); // מוצא את המשתמש המחובר
+    const visitor = visitors.find(visitor => visitor.name === visitorName);
+    const animal = visitor.Documentation.find(animal => animal.name === event.newValue); //הולך לחיה המתאימה
+    animal.visits +=1; // מוסיף ביקור
+    localStorage.setItem('visitors', JSON.stringify(visitors)); //שומר שינויים
+  }
+});
