@@ -175,4 +175,3 @@ function FilterByLivingEnvironment(animalsInzoo) {
   );
   return animals;
 }
-remove_logout_button();

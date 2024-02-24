@@ -9,22 +9,35 @@ function showVisitedAnimals() {
   VisitedAnimals_ = getanimals_forvisitor();
   animalarray = [];
   visited_Animals = [];
+
   visiitedanimals.forEach((element) => {
     animalarray.push(element.name);
     visited_Animals.push(element.visits);
   });
-  grphcreator("visited animals", animalarray, visited_Animals, "blue");
+  const ctx = document.getElementById("visited animals").getContext("2d");
+  const myChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: animalarray,
+      datasets: [
+        {
+          label: "",
+          data: visited_Animals,
+          backgroundColor: ["blue"],
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
   //ממשו את הלוגיקה שמציגה את החיות שהאורח הנוכחי ביקר בהן
 }
 function showFeededAnimals() {
-  VisitedAnimals_ = getanimals_forvisitor();
-  animalarray = [];
-  feedAnimal_ = [];
-  visiitedanimals.forEach((element) => {
-    animalarray.push(element.name);
-    feedAnimal_.push(element.visits);
-    grphcreator("chDonut2", animalarray, feedAnimal_, "blue");
-  });
   //ממשו את הלוגיקה שמציגה את החיות שהאורח הנוכחי האכיל אותן
 }
 function showFavoriteAnimal() {
@@ -33,7 +46,6 @@ function showFavoriteAnimal() {
 window.addEventListener("DOMContentLoaded", (event) => {
   coins_in_grph();
   showVisitedAnimals();
-  showFeededAnimals();
   showFavoriteAnimal();
   // Call other functions as needed
 });
@@ -45,7 +57,27 @@ function coins_in_grph() {
     labels.push(visitor.name);
     coins.push(visitor.coins);
   });
-  grphcreator("USercoins", labels, coins, "blue");
+  const ctx = document.getElementById("USercoins").getContext("2d");
+  const myChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "",
+          data: coins,
+          backgroundColor: ["blue"],
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
 }
 
 //צבי
@@ -60,27 +92,4 @@ function VisitedAnimals() {
   );
   localStorage.setItem("visited_animals", visited_Animals);
   return visited_Animals;
-}
-function grphcreator(HTmlelement, array1, array2, color) {
-  const ctx = document.getElementById(HTmlelement).getContext("2d");
-  const myChart = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: array1,
-      datasets: [
-        {
-          label: "",
-          data: array2,
-          backgroundColor: [color],
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
-  });
 }

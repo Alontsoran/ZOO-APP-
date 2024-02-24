@@ -309,19 +309,21 @@ function generateDataset() {
   console.log(visitors);
 }
 //clear data
-document.getElementById("clear_data").addEventListener("click", function () {
-  localStorage.clear();
-  location.reload();
-  logout_dataset();
-  generateDataset();
-});
-//logout
-function logout() {}
-document.getElementById("logout").addEventListener("click", function () {
-  localStorage.setItem("selectedVisitor", undefined);
-  logout_dataset();
-  saveName = " ";
-  location.reload();
+window.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("clear_data").addEventListener("click", function () {
+    localStorage.clear();
+    location.reload();
+    logout_dataset();
+    generateDataset();
+  });
+  //logout
+  function logout() {}
+  document.getElementById("logout").addEventListener("click", function () {
+    localStorage.setItem("selectedVisitor", undefined);
+    logout_dataset();
+    saveName = " ";
+    location.reload();
+  });
 });
 function logout_dataset() {
   if (
@@ -353,8 +355,16 @@ function getAliveVisitors(visitors) {
 }
 //תפריט אפשרויות בNAV
 Options = document.getElementById("visitor-select");
-visitorsnav();
+
 //יצירת האופציה לבחור מהתפריט
+document.addEventListener("DOMContentLoaded", function () {
+  visitorsnav();
+  Options.addEventListener("change", function () {
+    var selectedOption = this.options[this.selectedIndex];
+    localStorage.setItem("selectedVisitor", selectedOption.text);
+    location.reload();
+  });
+});
 function visitorsnav() {
   const visitors = getvisitorlist();
   Options = document.getElementById("visitor-select");
@@ -365,11 +375,7 @@ function visitorsnav() {
   });
 }
 //המתנה לבחירה אחרת של שחקן
-Options.addEventListener("change", function () {
-  var selectedOption = this.options[this.selectedIndex];
-  localStorage.setItem("selectedVisitor", selectedOption.text);
-  location.reload();
-});
+
 //פונקציות מרכזיות
 
 //עידכון הדמות בNAV
@@ -404,13 +410,13 @@ function template(foundVisitor) {
     `;
 }
 
-updateNavbar(); // Initial navbar update
+updateNavbar();
 
-let previousValue = getselectdvisitor(); // Initial value
-const currentValue = getselectdvisitor();
+previousValue = getselectdvisitor();
+currentValue = getselectdvisitor();
 if (previousValue !== currentValue) {
   console.log('Change detected in localStorage for key "selectedVisitor".');
-  updateNavbar(); // Update the navbar with the new visitor info
+  updateNavbar();
   previousValue = currentValue;
 }
 //מעדכן את הכניסות
