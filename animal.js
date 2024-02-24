@@ -54,7 +54,7 @@ function visitorGotEaten(animal, visitor) {
   const text =  `
   <div name="${visitor.name}+name" style="width:300px; margin: 10px;">
   <h5 class="card-title">${visitor.name} was devoured by the ${animal.name}</h5>
-  <img class="card-img-top" src="${visitor.photo}" alt="Picture of ${visitor.name}">`; 
+  <img class="card-img-top" src="./photos/backgrounds/lego_lion_eating_meat.jpeg" alt="Picture of a lego lion eating a visitor" style="width: 290px;">`; 
   // להכניס דילוג
   openDialog(text);
 }
@@ -68,7 +68,7 @@ function animalEscaped(animal) {
   const text =  `
   <div name="${animal.name}+name" style="width:300px; margin: 10px;">
   <h5 class="card-title">The ${animal.name} escaped from the zoo!!</h5>
-  <img class="card-img-top" id="dialogImg" src="${animal.photo}" alt="Picture of ${animal.name}" style="width: 290px;">`; 
+  <img class="card-img-top" id="dialogImg" src="./photos/backgrounds/lego_vegetarian_animals_escape.jpeg" alt="Picture of animals escape zoo" style="width: 290px;">`; 
   // להכניס דילוג
   openDialog(text);
 
