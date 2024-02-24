@@ -2,17 +2,17 @@ function getanimals_forvisitor() {
   visitorr = findvisitor(getselectdvisitor());
   visiitedanimals = visitorr.Documentation;
   console.log(visiitedanimals);
-  return visiitedanimals;
+  return JSON.stringify(visiitedanimals);
 }
 
 function showVisitedAnimals() {
   VisitedAnimals_ = getanimals_forvisitor();
   animalarray = [];
   visited_Animals = [];
-
   visiitedanimals.forEach((element) => {
     animalarray.push(element.name);
     visited_Animals.push(element.visits);
+    console.log(element.feeding);
   });
   const ctx = document.getElementById("visited animals").getContext("2d");
   const myChart = new Chart(ctx, {
@@ -39,6 +39,35 @@ function showVisitedAnimals() {
 }
 function showFeededAnimals() {
   //ממשו את הלוגיקה שמציגה את החיות שהאורח הנוכחי האכיל אותן
+  VisitedAnimals_ = getanimals_forvisitor();
+
+  animalarray = [];
+  visited_Animals = [];
+  visiitedanimals.forEach((element) => {
+    animalarray.push(element.name);
+    visited_Animals.push(element.feeding);
+  });
+  const ctx = document.getElementById("chDonut2").getContext("2d");
+  const myChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: animalarray,
+      datasets: [
+        {
+          label: " ",
+          data: visited_Animals,
+          backgroundColor: ["blue"],
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
 }
 function showFavoriteAnimal() {
   //ממשו את הלוגיקה שמציגה את החיה שהאורח ביקר הכי הרבה פעמים אצלה
@@ -47,6 +76,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   coins_in_grph();
   showVisitedAnimals();
   showFavoriteAnimal();
+  showFeededAnimals();
   // Call other functions as needed
 });
 function coins_in_grph() {
