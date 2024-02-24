@@ -26,6 +26,10 @@ function feedAnimal(animal , visitor) {
   // במידה ואין מספיק מטבעות, טפלו בהתאם להנחיות במטלה
   if (parseInt(visitor.coins) >= 2){
     visitor.coins-=2;
+
+    const animal_ = visitor.Documentation.find(animal_ => animal_.name === animal.name); //הולך לחיה המתאימה
+    animal_.feeding +=1; // מוסיף האכלה
+
     alert("Thanks for feeding me!");
 
     localStorage.setItem('visitors', JSON.stringify(visitors));
@@ -70,6 +74,7 @@ function animalEscaped(animal) {
 
 }
 
+//הרצת דיילוג
 function openDialog(text) {
   var dialog = document.getElementById("myDialog");
   dialog.showModal();
