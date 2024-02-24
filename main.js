@@ -7,8 +7,8 @@ function generateDataset() {
   if (visitor === "" || visitor === undefined)
     localStorage.setItem("selectedVisitor", " ");
 
-
-    let animals_visit = [ //יצירת ערך שמתעד את הפעילות של המשתמש, כל משתמש מקבל אחד
+  let animals_visit = [
+    //יצירת ערך שמתעד את הפעילות של המשתמש, כל משתמש מקבל אחד
     {
       name: "Lion",
       visits: 0,
@@ -55,8 +55,7 @@ function generateDataset() {
       feeding: 0,
     },
   ];
-  
-  
+
   let visitors = [
     {
       name: "JohnSmith",
@@ -203,7 +202,7 @@ function generateDataset() {
       Documentation: animals_visit,
     },
   ];
-  let animals = [ 
+  let animals = [
     {
       name: "Lion",
       isPredator: true,
@@ -296,7 +295,6 @@ function generateDataset() {
     },
   ];
 
-
   if (localStorage.getItem("visitors")) {
     visitors = JSON.parse(localStorage.getItem("visitors"));
   } else {
@@ -310,12 +308,33 @@ function generateDataset() {
 
   console.log(visitors);
 }
-
-generateDataset();
-
-function logout() {
-  //ממשו את הלוגיקה שמתנתקת מאורח מחובר
-  // שימו לב לנקות את השדה המתאים בלוקל סטורג'
+//clear data
+document.getElementById("clear_data").addEventListener("click", function () {
+  localStorage.clear();
+  location.reload();
+  logout_dataset();
+  generateDataset();
+});
+//logout
+function logout() {}
+document.getElementById("logout").addEventListener("click", function () {
+  localStorage.setItem("selectedVisitor", undefined);
+  logout_dataset();
+  saveName = " ";
+  location.reload();
+});
+function logout_dataset() {
+  if (
+    localStorage.getItem("selectedVisitor") == "" ||
+    localStorage.getItem("selectedVisitor") == undefined
+  ) {
+    localStorage.setItem("selectedVisitor", " ");
+  }
+}
+function findvisitor(name) {
+  const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+  const foundVisitor = visitors.find((visitor) => visitor.name === name);
+  return foundVisitor;
 }
 //לקיחת המערך של כל המבקרים
 function getvisitorlist() {
@@ -349,6 +368,7 @@ function visitorsnav() {
 Options.addEventListener("change", function () {
   var selectedOption = this.options[this.selectedIndex];
   localStorage.setItem("selectedVisitor", selectedOption.text);
+  location.reload();
 });
 //פונקציות מרכזיות
 
@@ -386,29 +406,50 @@ function template(foundVisitor) {
 
 updateNavbar(); // Initial navbar update
 
-// THIS FUNCTION CHECK EVERY ! MIL SECOND IF THE DATA CHANGED
 let previousValue = getselectdvisitor(); // Initial value
-setInterval(function () {
-  const currentValue = getselectdvisitor();
-  if (previousValue !== currentValue) {
-    console.log('Change detected in localStorage for key "selectedVisitor".');
-    updateNavbar(); // Update the navbar with the new visitor info
-    previousValue = currentValue;
-  }
-}, 1);
-
+const currentValue = getselectdvisitor();
+if (previousValue !== currentValue) {
+  console.log('Change detected in localStorage for key "selectedVisitor".');
+  updateNavbar(); // Update the navbar with the new visitor info
+  previousValue = currentValue;
+}
 //מעדכן את הכניסות
-window.addEventListener('storage', function(event) { // מזהה שינוי בלוקל סטוריג
-  if (event.key === 'TheChosenAnimal') {
+window.addEventListener("storage", function (event) {
+  // מזהה שינוי בלוקל סטוריג
+  if (event.key === "TheChosenAnimal") {
     const visitorName = localStorage.getItem("selectedVisitor");
-    if (!visitorName) { //בודק שיש משתנה מחובר
+    if (!visitorName) {
+      //בודק שיש משתנה מחובר
       alert("You need to be logged-in");
       return;
     }
     visitors = JSON.parse(localStorage.getItem("visitors")); // מוצא את המשתמש המחובר
-    const visitor = visitors.find(visitor => visitor.name === visitorName);
-    const animal = visitor.Documentation.find(animal => animal.name === event.newValue); //הולך לחיה המתאימה
-    animal.visits +=1; // מוסיף ביקור
-    localStorage.setItem('visitors', JSON.stringify(visitors)); //שומר שינויים
+    const visitor = visitors.find((visitor) => visitor.name === visitorName);
+    const animal = visitor.Documentation.find(
+      (animal) => animal.name === event.newValue
+    ); //הולך לחיה המתאימה
+    animal.visits += 1; // מוסיף ביקור
+    localStorage.setItem("visitors", JSON.stringify(visitors)); //שומר שינויים
   }
 });
+function remove_logout_button() {
+  document.addEventListener("DOMContentLoaded", function () {
+    var iframe = document.getElementById("frame");
+
+    iframe.addEventListener("load", function () {
+      try {
+        var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+        // ניתן לגשת לאלמנטים ב-DOM של הדף המוטען ב-iframe
+        var specificElement = iframeDoc.getElementById("select_visitor");
+        var specificElement2 = iframeDoc.getElementById("logout");
+        if (specificElement && specificElement2) {
+          // שינוי האלמנט לפי הצורך
+          specificElement.style.display = "none";
+          specificElement2.style.display = "none";
+        }
+      } catch (error) {
+        console.error("Cannot access iframe content:", error);
+      }
+    });
+  });
+}

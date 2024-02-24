@@ -2,7 +2,9 @@ function createNewVisitor(event) {
   // ביטול התנהגות דיפולטיבית של שליחת טופס
   // קראו עוד כאן: https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
   event.preventDefault();
-  const validateFormInputs = () => {};
+  const validateFormInputs = () => {
+    const visitorExists = (name) => {};
+  };
 
   /**
   צרו אורח חדש כאן 👇
@@ -33,20 +35,4 @@ if (createForm) {
 }
 
 //הסרת שמות אנשים מNAV
-document.addEventListener("DOMContentLoaded", function () {
-  var iframe = document.getElementById("frame");
-
-  iframe.addEventListener("load", function () {
-    try {
-      var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-      // ניתן לגשת לאלמנטים ב-DOM של הדף המוטען ב-iframe
-      var specificElement = iframeDoc.getElementById("select_visitor");
-      if (specificElement) {
-        // שינוי האלמנט לפי הצורך
-        specificElement.style.display = "none";
-      }
-    } catch (error) {
-      console.error("Cannot access iframe content:", error);
-    }
-  });
-});
+remove_logout_button();

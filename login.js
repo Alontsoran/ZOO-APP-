@@ -1,10 +1,5 @@
 //"First set up of selected user"// בוצע תיקון באג
-if (
-  localStorage.getItem("selectedVisitor") == "" ||
-  localStorage.getItem("selectedVisitor") == undefined
-) {
-  localStorage.setItem("selectedVisitor", " ");
-}
+logout_dataset();
 
 document.getElementsByClassName("ready");
 //סינון כל החיים
@@ -79,6 +74,7 @@ function dialog(saveName) {
     //דרישה ושמירה של הערך החדש
     localStorage.setItem("selectedVisitor", saveName);
     savedName = saveName; //דריסת ערך גלובלי
+    location.reload();
     updateNavbar();
     dialogopner.open = false; // סיום פעולה וסגירה
   });
@@ -90,11 +86,7 @@ function dialog(saveName) {
     searchforelement(savedName); //חיפוש הדיאלוג כדי להחזיר אותו בתוך הדיאלוג
   }
 }
-function findvisitor(name) {
-  const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
-  const foundVisitor = visitors.find((visitor) => visitor.name === name);
-  return foundVisitor;
-}
+
 function searchforelement(name) {
   foundVisitor = findvisitor(name);
   if (foundVisitor) {
@@ -119,20 +111,4 @@ function template(foundVisitor) {
     `;
   return template;
 }
-document.addEventListener("DOMContentLoaded", function () {
-  var iframe = document.getElementById("frame");
-
-  iframe.addEventListener("load", function () {
-    try {
-      var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-      // ניתן לגשת לאלמנטים ב-DOM של הדף המוטען ב-iframe
-      var specificElement = iframeDoc.getElementById("select_visitor");
-      if (specificElement) {
-        // שינוי האלמנט לפי הצורך
-        specificElement.style.display = "none";
-      }
-    } catch (error) {
-      console.error("Cannot access iframe content:", error);
-    }
-  });
-});
+remove_logout_button();
