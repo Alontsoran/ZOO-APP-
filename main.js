@@ -358,7 +358,6 @@ Options = document.getElementById("visitor-select");
 
 //יצירת האופציה לבחור מהתפריט
 document.addEventListener("DOMContentLoaded", function () {
-  visitorsnav();
   Options.addEventListener("change", function () {
     var selectedOption = this.options[this.selectedIndex];
     localStorage.setItem("selectedVisitor", selectedOption.text);
@@ -366,14 +365,21 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 function visitorsnav() {
-  const visitors = getvisitorlist();
-  Options = document.getElementById("visitor-select");
-  visitors.forEach((visitor) => {
-    const Option = document.createElement("option");
-    Option.textContent = visitor.name;
-    Options.add(Option);
-  });
+  try {
+    const visitors = getvisitorlist(); // אני מניח שזו פונקציה שלך שמחזירה מערך של אורחים
+    const Options = document.getElementById("visitor-select");
+
+    visitors.forEach((visitor) => {
+      const Option = document.createElement("option");
+      Option.textContent = visitor.name;
+      Option.value = visitor.name; // טוב להוסיף, במיוחד אם תרצה להשתמש בערך בהמשך
+      Options.add(Option);
+    });
+  } catch (error) {
+    console.warn(error.message); // מדפיס אזהרה לקונסול עם הודעת השגיאה
+  }
 }
+
 //המתנה לבחירה אחרת של שחקן
 
 //פונקציות מרכזיות
@@ -387,7 +393,7 @@ function updateNavbar() {
   if (navbar && visitor) {
     navbar.innerHTML = template(visitor);
   } else {
-    console.error("Navbar element or visitor not found.");
+    console.warn("Navbar element or visitor not found.");
 
     // שליחת תגובה לקנוסול
   }
@@ -411,7 +417,7 @@ function template(foundVisitor) {
 }
 
 updateNavbar();
-
+visitorsnav();
 previousValue = getselectdvisitor();
 currentValue = getselectdvisitor();
 if (previousValue !== currentValue) {
@@ -454,7 +460,7 @@ function remove_logout_button() {
           specificElement2.style.display = "none";
         }
       } catch (error) {
-        console.error("Cannot access iframe content:", error);
+        console.warn("Cannot access iframe content:", error);
       }
     });
   });
