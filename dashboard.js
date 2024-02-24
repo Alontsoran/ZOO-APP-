@@ -43,3 +43,14 @@ function coins_in_grph() {
     },
   });
 }
+
+
+//צבי
+//פונקציה ששולפת את שמות החיות שבוקרו
+let visitors = JSON.parse(localStorage.getItem("visitors"));
+let visitorName = localStorage.getItem("selectedVisitor");
+function VisitedAnimals() {
+  const visitor = visitors.find(visitor => visitor.name === visitorName);
+  const visited_Animals = visitor.Documentation.filer(animal => animal.visits > 0);
+  return visited_Animals;
+}
