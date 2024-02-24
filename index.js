@@ -1,4 +1,5 @@
 visitor = localStorage.getItem("selectedVisitor");
+// מעברי לגן החיות
 const zoo = document.getElementById(`zooDiv`);
 zoo.addEventListener("click", () => {
   if (
@@ -13,14 +14,22 @@ zoo.addEventListener("click", () => {
   }
 });
 
+//מעביר להתחברות
 const login_ = document.getElementById(`loginDiv`);
 login_.addEventListener("click", () => {
   window.location.href = "./login.html";
 });
 
+//מעביר לדשבורד
 const dashboard = document.getElementById(`dashboardDiv`);
 dashboard.addEventListener("click", () => {
   window.location.href = "./dashboard.html";
+});
+
+//מעביר לדף היצירה
+const signup = document.getElementById(`signupDiv`);
+dashboard.addEventListener("click", () => {
+  window.location.href = "./signup.html";
 });
 
 ///הסרת השמות של האנשים מהNAV
