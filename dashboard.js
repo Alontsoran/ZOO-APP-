@@ -1,6 +1,6 @@
 function getanimals_forvisitor() {
-  visitor = findvisitor(getselectdvisitor());
-  visiitedanimals = visitor.Documentation;
+  visitorr = findvisitor(getselectdvisitor());
+  visiitedanimals = visitorr.Documentation;
   console.log(visiitedanimals);
   return visiitedanimals;
 }

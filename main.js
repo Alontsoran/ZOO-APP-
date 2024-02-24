@@ -309,22 +309,31 @@ function generateDataset() {
   console.log(visitors);
 }
 //clear data
-window.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("clear_data").addEventListener("click", function () {
+const clearDataBtn = document.getElementById("clear_data");
+if (clearDataBtn) {
+  clearDataBtn.addEventListener("click", function () {
     localStorage.clear();
     location.reload();
     logout_dataset();
     generateDataset();
   });
-  //logout
-  function logout() {}
-  document.getElementById("logout").addEventListener("click", function () {
+} else {
+  console.warn("אזהרה: אלמנט 'clear_data' לא נמצא ב-DOM.");
+}
+
+//logout
+const logoutBtn = document.getElementById("logout");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", function logout() {
     localStorage.setItem("selectedVisitor", undefined);
     logout_dataset();
     saveName = " ";
     location.reload();
   });
-});
+} else {
+  console.warn("אזהרה: אלמנט 'logout' לא נמצא ב-DOM.");
+}
+
 function logout_dataset() {
   if (
     localStorage.getItem("selectedVisitor") == "" ||
@@ -355,34 +364,37 @@ function getAliveVisitors(visitors) {
 }
 //תפריט אפשרויות בNAV
 Options = document.getElementById("visitor-select");
+document.addEventListener("DOMContentLoaded", function () {
+  const Options = document.getElementById("visitor-select");
+  if (Options) {
+    Options.addEventListener("change", function () {
+      var selectedOption = this.options[this.selectedIndex];
+      localStorage.setItem("selectedVisitor", selectedOption.text);
+      location.reload();
+    });
+  } else {
+    console.warn("אזהרה: אלמנט 'visitor-select' לא נמצא ב-DOM בזמן הרצת הקוד.");
+  }
+});
 
 //יצירת האופציה לבחור מהתפריט
-document.addEventListener("DOMContentLoaded", function () {
-  Options.addEventListener("change", function () {
-    var selectedOption = this.options[this.selectedIndex];
-    localStorage.setItem("selectedVisitor", selectedOption.text);
-    location.reload();
-  });
-});
+document.addEventListener("DOMContentLoaded", function () {});
 function visitorsnav() {
+  //פונקציה זו לא עבדה לנו כמו שצריך אז עשינו TRY ו CATCH הפונקציה תקינה לחלוטין יש שגיאה עם ADD למרות שזה עובד וזה מוכר
   try {
-    const visitors = getvisitorlist(); // אני מניח שזו פונקציה שלך שמחזירה מערך של אורחים
+    const visitors = getvisitorlist();
     const Options = document.getElementById("visitor-select");
 
     visitors.forEach((visitor) => {
       const Option = document.createElement("option");
       Option.textContent = visitor.name;
-      Option.value = visitor.name; // טוב להוסיף, במיוחד אם תרצה להשתמש בערך בהמשך
+      Option.value = visitor.name;
       Options.add(Option);
     });
   } catch (error) {
     console.warn(error.message); // מדפיס אזהרה לקונסול עם הודעת השגיאה
   }
 }
-
-//המתנה לבחירה אחרת של שחקן
-
-//פונקציות מרכזיות
 
 //עידכון הדמות בNAV
 function updateNavbar() {
@@ -394,7 +406,7 @@ function updateNavbar() {
     navbar.innerHTML = template(visitor);
   } else {
     console.warn("Navbar element or visitor not found.");
-
+    // קורה לנו כמה פעמים , בעיקר בהפעלה הראשונה לכן זאת אזהרה
     // שליחת תגובה לקנוסול
   }
 }
