@@ -198,7 +198,10 @@ iframe {
   width: 70px;
   height: 35px;
 }
-
+.card-dash {
+  color: black;
+  background-color: bisque;
+}
 input {
   width: 110px;
 }
