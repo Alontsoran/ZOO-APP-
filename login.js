@@ -34,7 +34,6 @@ function search(input) {
   let filteredUsers = getAliveVisitors(visitors).filter((visitor) =>
     visitor.name.includes(input)
   );
-
   console.log(filteredUsers);
   if (filteredUsers.length === 0) {
     showclearsearch();
@@ -46,8 +45,8 @@ function showclearsearch() {
   button = '<button id="button_clean" >No result try again</button>';
   display.innerHTML += button;
   document.getElementById("button_clean").addEventListener("click", () => {
-    search("");
     document.getElementById("button_clean").style.display = "none";
+    search("");
     location.reload();
   });
 }

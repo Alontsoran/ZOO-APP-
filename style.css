@@ -157,9 +157,16 @@ iframe {
   transform: translate(-50%, -50%);
 }
 /*הסטייל של דף הZOO*/
+#h1ref {
+  background-color: rgba(214, 150, 21, 0.667);
+  display: flex;
+  justify-content: center;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
+}
 #forms {
   background-color: rgb(207, 204, 198);
-  margin: 120px 40px 20px;
+  margin: 40px 20px;
+  justify-content: center;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
@@ -292,7 +299,7 @@ input {
   margin: 30px;
   background-color: rgba(0, 100, 0, 0.5);
   padding: 15px;
-  color: white
+  color: white;
 }
 
 #About h4 {
