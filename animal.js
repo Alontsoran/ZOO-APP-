@@ -47,8 +47,10 @@ function feedAnimal(animal , visitor) {
 
 function visitorGotEaten(animal, visitor) {
   // ממשו את הלוגיקה של חיה שטורפת אורח
-  visitor.alive =0;
-  localStorage.setItem('visitors', JSON.stringify(visitors));
+
+  //visitor.alive =0; //זה כתיבת קוד בצורה ההגיונית יותר אבל שלא עומדת בדרישות המטלה
+  const updatedVisitors = visitors.filter(visitor_ => visitor_.name !== visitor.name);
+  localStorage.setItem('visitors', JSON.stringify(updatedVisitors));
   localStorage.setItem("selectedVisitor", "");
 
   const text =  `
@@ -61,9 +63,6 @@ function visitorGotEaten(animal, visitor) {
 
 function animalEscaped(animal) {
   //ממשו את הלוגיקה של חיה שבורחת מגן החיות
-  animal.in_cage = 0;
-  localStorage.setItem('animals', JSON.stringify(animals));
-  localStorage.setItem("TheChosenAnimal", "");
 
   const text =  `
   <div name="${animal.name}+name" style="width:300px; margin: 10px;">
@@ -72,6 +71,10 @@ function animalEscaped(animal) {
   // להכניס דילוג
   openDialog(text);
 
+  //animal.in_cage = 0; //זה כתיבת קוד בצורה ההגיונית יותר אבל שלא עומדת בדרישות המטלה
+  const updatedAnimals = animals.filter(animal_ => animal_.name !== animal.name);
+  localStorage.setItem('animals', JSON.stringify(updatedAnimals));
+  localStorage.setItem("TheChosenAnimal", "");
 }
 
 //הרצת דיילוג
