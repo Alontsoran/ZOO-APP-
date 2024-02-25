@@ -315,7 +315,6 @@ if (clearDataBtn) {
     localStorage.clear();
     location.reload();
     logout_dataset();
-    generateDataset();
   });
 } else {
   console.warn("אזהרה: אלמנט 'clear_data' לא נמצא ב-DOM.");
@@ -439,7 +438,6 @@ if (previousValue !== currentValue) {
   window.top.location.reload();
   previousValue = currentValue;
 }
-
 
 function remove_logout_button() {
   document.addEventListener("DOMContentLoaded", function () {
