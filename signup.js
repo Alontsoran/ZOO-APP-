@@ -5,7 +5,7 @@ function createNewVisitor(event) {
   var name = document.getElementById("name").value;
   console.log(document.getElementById("name").value);
   document.getElementById("name").value = "";
-
+  
   const newvisitor = {
     name: name,
     alive: 1,
@@ -75,16 +75,12 @@ function createNewVisitor(event) {
     const visitorExists = (name) => {};
   };
 
-  /**
-  צרו אורח חדש כאן 👇
-  ניתן לפצל את הלוגיקה למספר בלתי מוגבל של פונקציות.
-  כמו שיותר מפוצל וטהור - פונקציות עם מטרה יחידה ושם משמעותי שמסביר מה הפונקציה עושה ומחזירה
-  דוגמא:
-
   
 
+  
+//בדיקה האם האורח כבר קיים 
   const visitorExists = (name) => {
-    מקבל שם ומחזיר תשובה האם השם האורח קיים
+   
   }
 
   const makeVisitor = (name) => {
