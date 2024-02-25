@@ -1,11 +1,21 @@
+const visitorExists = (name) => {
+  const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+  return visitors.some((visitor) => visitor.name === name);
+}; //החזרת FALSE נותן לי כאן שהוא קיים
+
 function createNewVisitor(event) {
-  // ביטול התנהגות דיפולטיבית של שליחת טופס
-  // קראו עוד כאן: https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
   event.preventDefault();
   var name = document.getElementById("name").value;
   console.log(document.getElementById("name").value);
-  document.getElementById("name").value = "";
-
+  if (visitorExists(name) === true) {
+    console.log(visitorExists(name));
+    alert("This user is already exsits");
+    document.getElementById("name").value = "";
+  } else {
+    makeVisitor(name);
+  }
+}
+const makeVisitor = (name) => {
   const newvisitor = {
     name: name,
     alive: 1,
@@ -62,36 +72,11 @@ function createNewVisitor(event) {
     ]),
   };
   let visitors = JSON.parse(localStorage.getItem("visitors")) || [];
-  visitors.forEach((visitor) => {
-    if (visitor.name === name) {
-      return alert("This user is already login please change the Name");
-    }
-  });
   visitors.push(newvisitor);
   console.log(visitors);
   localStorage.setItem("visitors", JSON.stringify(visitors));
-
-  const validateFormInputs = (name) => {
-    const visitorExists = (name) => {};
-  };
-
-  /**
-  צרו אורח חדש כאן 👇
-  ניתן לפצל את הלוגיקה למספר בלתי מוגבל של פונקציות.
-  כמו שיותר מפוצל וטהור - פונקציות עם מטרה יחידה ושם משמעותי שמסביר מה הפונקציה עושה ומחזירה
-  דוגמא:
-
-  
-
-  const visitorExists = (name) => {
-    מקבל שם ומחזיר תשובה האם השם האורח קיים
-  }
-
-  const makeVisitor = (name) => {
-    מקבל שם, בודק שאין אותו כבר במערך האורחים ומחזיר אובייקט אורח
-  }
-  **/
-}
+  document.getElementById("name").value = "";
+};
 
 /**************************************
   מימשתי עבורכם את ההאזנה לאירוע שליחת טופס
@@ -105,3 +90,22 @@ if (createForm) {
 
 //הסרת שמות אנשים מNAV
 remove_logout_button();
+/**
+  צרו אורח חדש כאן 👇
+  ניתן לפצל את הלוגיקה למספר בלתי מוגבל של פונקציות.
+  כמו שיותר מפוצל וטהור - פונקציות עם מטרה יחידה ושם משמעותי שמסביר מה הפונקציה עושה ומחזירה
+  דוגמא:
+
+  const validateFormInputs = () => {
+    בודק האם האינפוטים קיימים ויש בהם ערך
+    מחזיר האם תקין או לא (בוליאני)
+  }
+
+  const visitorExists = (name) => {
+    מקבל שם ומחזיר תשובה האם השם האורח קיים
+  }
+
+  const makeVisitor = (name) => {
+    מקבל שם, בודק שאין אותו כבר במערך האורחים ומחזיר אובייקט אורח
+  }
+  **/
