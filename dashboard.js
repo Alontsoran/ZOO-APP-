@@ -123,3 +123,16 @@ function VisitedAnimals() {
   localStorage.setItem("visited_animals", visited_Animals);
   return visited_Animals;
 }
+
+//מוצא את החיה שביקרו הכי הרבה
+function TheMostVisitedAnimal() {
+  const visitor = visitors.find((visitor) => visitor.name === visitorName);
+  const MostVisited = visitor.Documentation.reduce((MostVisited , current) => {
+    return (MostVisited.visits > current.visits) ? MostVisited : current
+  })
+  return MostVisited.mane;
+}
+
+function UpdetTheMostVisitedAnimal() {
+  
+}
