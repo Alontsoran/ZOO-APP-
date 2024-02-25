@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   renderAnimal(animal);
   
   //יוצר את הכרטיסיות למטה
-  renderAvailableAnimals(BasicFilter())
+  renderAvailableAnimals(animals)
 
   // מביא את הנתונים של המשתמש המחובר
   const visitor = getVisitor();
@@ -114,17 +114,23 @@ function getVisitor() {
   return visitor;
 }
 
+
 let visitors = JSON.parse(localStorage.getItem("visitors")) || [];
 let animals = JSON.parse(localStorage.getItem("animals")) || []; 
 
 //יוצר את הבר למטה
-function BasicFilter(){
+
+/**
+ * רלוונטי רק בגירסה השניה של הקוד שבה לא מוחקים את החיות אלה משנים להן את הנתונים
+ function BasicFilter(){ //סינון ראשוני
   let animalInZOO = animals.filter((animal) => animal.in_cage == 1)
   return animalInZOO
 }
+ */
 
+//פה יוצרים את הכרטיבים
 function renderAvailableAnimals(animalsInzoo) {
-  animals = FilterByLivingEnvironment(animalsInzoo);
+  animals = FilterByLivingEnvironment(animalsInzoo); //מסננן
   const animalsContainer = document.getElementById("animal-cards-animal");
   animalsContainer.innerHTML = "";
   const animalsHTML = animals.map(getvisitorHTMLCard).join("");
@@ -140,7 +146,8 @@ function renderAvailableAnimals(animalsInzoo) {
   });
 }
 
-function getvisitorHTMLCard(animal) {
+//יוצר כרטיסית חיה
+function getvisitorHTMLCard(animal) { //יש פה הבדלים בסטייל בין זה לבין הדף של החיות
   const template = `
     <div id="card-${animal.name}" class="cardss" style="width:200px; margin: 10px;">
       <img class="card-img-top" src=${animal.image} alt="תמונת ${animal.name}" style="width:180px; margin: 10px;">
@@ -154,6 +161,8 @@ function getvisitorHTMLCard(animal) {
   return template;
 }
 
+//&&&&&&
+//מעביר דף בלחיצה
 function visitAnimal(animalName) {
   localStorage.setItem('TheChosenAnimal', JSON.stringify(animalName));
   window.location.href = './animal.html';
