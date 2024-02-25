@@ -7,6 +7,7 @@ function createNewVisitor(event) {
   document.getElementById("name").value = "";
   const newvisitor = {
     name: name,
+    alive: 1,
     coins: 50,
     photo:
       "https://i.ibb.co/SPt0G0N/DALL-E-2024-02-25-08-56-03-Create-an-image-of-a-LEGO-character-with-a-question-mark-over-it-similar.webp",
@@ -59,10 +60,11 @@ function createNewVisitor(event) {
       },
     ]),
   };
-  const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+  let visitors = JSON.parse(localStorage.getItem("visitors")) || [];
   visitors.push(newvisitor);
-  JSON.stringify(visitors);
   console.log(visitors);
+  localStorage.setItem("visitors", JSON.stringify(visitors));
+
   const validateFormInputs = () => {
     const visitorExists = (name) => {};
   };
