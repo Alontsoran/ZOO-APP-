@@ -2,6 +2,9 @@ function createNewVisitor(event) {
   // ביטול התנהגות דיפולטיבית של שליחת טופס
   // קראו עוד כאן: https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
   event.preventDefault();
+  const form = document.querySelector("create-visitor-form");
+  console.log(document.getElementById("name").value);
+
   const validateFormInputs = () => {
     const visitorExists = (name) => {};
   };
@@ -31,7 +34,7 @@ function createNewVisitor(event) {
   אין לשנות אותו */
 const createForm = document.getElementById("create-visitor-form");
 if (createForm) {
-  createForm.addEventListener("submit", createNewVisitor);
+  createForm.addEventListener("Subscribe!", createNewVisitor);
 }
 
 //הסרת שמות אנשים מNAV

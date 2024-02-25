@@ -370,6 +370,7 @@ document.addEventListener("DOMContentLoaded", function () {
     Options.addEventListener("change", function () {
       var selectedOption = this.options[this.selectedIndex];
       localStorage.setItem("selectedVisitor", selectedOption.text);
+      window.top.location.reload();
       location.reload();
     });
   } else {
@@ -435,6 +436,7 @@ currentValue = getselectdvisitor();
 if (previousValue !== currentValue) {
   console.log('Change detected in localStorage for key "selectedVisitor".');
   updateNavbar();
+  window.top.location.reload();
   previousValue = currentValue;
 }
 //מעדכן את הכניסות
