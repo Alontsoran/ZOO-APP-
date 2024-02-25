@@ -5,14 +5,7 @@ function renderAvailableAnimals(animalInZOO) {
   const animals = AdvancedFilter(animalInZOO);
   PresentsAnimals(animals)
 
-  animalInZOO.forEach(animal => {
-    const card = document.getElementById(`card-${animal.name}`);
-    if (card) {
-      card.addEventListener('click', () => {
-        visitAnimal(animal.name);
-      });
-    }
-  });
+  
 }
 
 //מציגה את החיות
@@ -23,6 +16,15 @@ function PresentsAnimals(animals) {
   const animalsHTML = animals.map(getvisitorHTMLCard).join("");
   animalsContainer.innerHTML = animalsHTML;
 
+  //מאזין לכרטיסים שנוצרו
+  animals.forEach(animal => {
+    const card = document.getElementById(`card-${animal.name}`);
+    if (card) {
+      card.addEventListener('click', () => {
+        visitAnimal(animal.name);
+      });
+    }
+  });
 }
 
 function visitAnimal(animalName) {
