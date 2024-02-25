@@ -1,21 +1,18 @@
 //"First set up of selected user"// בוצע תיקון באג
 logout_dataset();
-
 document.getElementsByClassName("ready");
 //סינון כל החיים
-
-document.getElementById("click");
-
+//הצגת כל האנשים בתוך LOGIN
 function displayVisitors(visitors) {
   const visitorsContainer =
     document.getElementById("visitorsList") ||
     document.getElementById("searchResults");
   visitorsContainer.innerHTML = ""; //ניקוי מה שהיה
-  // פה ממפים את המבקרים
+  // הוספת טמפלייטים לתוך הLOGIN
   const visitorsHTML = visitors.map(getvisitorHTMLCard).join("");
   visitorsContainer.innerHTML = visitorsHTML;
 }
-//card template in the html
+//template for eash html card "כרטיס "
 function getvisitorHTMLCard(visitor) {
   var template = `
     <div id="cardss" <div id="cardss" class="card"  class="card" name="${visitor.name}+name" style="width:300px; margin: 10px;">
@@ -31,7 +28,7 @@ function getvisitorHTMLCard(visitor) {
   var wrapper = template;
   return template;
 }
-//search for a player i nthe search box
+//חיפוש של שדה בתוך התיבת חחיפוש
 function search(input) {
   const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
   let filteredUsers = getAliveVisitors(visitors).filter((visitor) =>
@@ -40,19 +37,19 @@ function search(input) {
   console.log(filteredUsers);
   displayVisitors(filteredUsers);
 }
-//display players
+//תת פונקציה של משיכה מ LOCAL STORAGE
 function displayaliveVisitors() {
   const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
   displayVisitors(getAliveVisitors(visitors));
 }
-
+// ביצוע החיפוש בפועל
 document.addEventListener("DOMContentLoaded", function () {
   displayaliveVisitors(); // Display all alive visitors on load
   document.getElementById("searchBox").addEventListener("input", function () {
     search(this.value);
   });
 });
-//functions for the dialog
+//הפנייה לדיגאלוג
 function saveName(name) {
   if (savedName !== name) {
     dialog(name);
@@ -86,7 +83,7 @@ function dialog(saveName) {
     searchforelement(savedName); //חיפוש הדיאלוג כדי להחזיר אותו בתוך הדיאלוג
   }
 }
-
+//חיפוש אלמנט לטובת הNAV BAR
 function searchforelement(name) {
   foundVisitor = findvisitor(name);
   if (foundVisitor) {
@@ -97,7 +94,7 @@ function searchforelement(name) {
     displayElement.innerHTML = "<p>Visitor not found.</p>";
   }
 }
-//template dialog
+//הצגת התמונה בדיאלוג
 function template(foundVisitor) {
   const template = `
       <div name="${foundVisitor.name}+name" style="width:300px; margin: 10px;">
@@ -111,4 +108,5 @@ function template(foundVisitor) {
     `;
   return template;
 }
+// פונקציה זו מסירה את הכפתור של LOGOUT
 remove_logout_button();
