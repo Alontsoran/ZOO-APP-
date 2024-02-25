@@ -298,6 +298,7 @@ function generateDataset() {
   if (localStorage.getItem("visitors")) {
     visitors = JSON.parse(localStorage.getItem("visitors"));
   } else {
+    visitors.push();
     localStorage.setItem("visitors", JSON.stringify(visitors));
   }
   if (localStorage.getItem("animals")) {
