@@ -12,7 +12,7 @@ function displayVisitors(visitors) {
   const visitorsHTML = visitors.map(getvisitorHTMLCard).join("");
   visitorsContainer.innerHTML = visitorsHTML;
 }
-//template for eash html card "כרטיס "
+//הצגת שחקן בתוך כל אדם קיים כפתור LOGIN כonclick
 function getvisitorHTMLCard(visitor) {
   var template = `
     <div id="cardss" <div id="cardss" class="card"  class="card" name="${visitor.name}+name" style="width:300px; margin: 10px;">
@@ -21,10 +21,11 @@ function getvisitorHTMLCard(visitor) {
       <div class="card-body">
         <h5 class="card-title">${visitor.name}</h5>
         <p class="card-text">Coins: ${visitor.coins}</p>
-        <button onclick="saveName('${visitor.name}')" >Login</button>
+        <button onclick="saveName('${visitor.name}')" >Login</button> 
         </div>
     </div>
   `;
+  //בתוך ONCLICK יש קריאה לפונקציה של SAVE NAME
   return template;
 }
 //חיפוש של שדה בתוך התיבת חחיפוש
@@ -33,9 +34,24 @@ function search(input) {
   let filteredUsers = getAliveVisitors(visitors).filter((visitor) =>
     visitor.name.includes(input)
   );
+
   console.log(filteredUsers);
+  if (filteredUsers.length === 0) {
+    showclearsearch();
+  }
   displayVisitors(filteredUsers);
 }
+function showclearsearch() {
+  display = document.getElementById("search");
+  button = '<button id="button_clean" >No result try again</button>';
+  display.innerHTML += button;
+  document.getElementById("button_clean").addEventListener("click", () => {
+    search("");
+    document.getElementById("button_clean").style.display = "none";
+    location.reload();
+  });
+}
+
 //תת פונקציה של משיכה מ LOCAL STORAGE
 function displayaliveVisitors() {
   const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
@@ -48,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     search(this.value);
   });
 });
-//הפנייה לדיגאלוג
+//קריאה לדיאלוג דרך SAVENAME שמוטמע בתוך הTEMPLATE
 function saveName(name) {
   if (savedName !== name) {
     dialog(name);
@@ -93,7 +109,7 @@ function searchforelement(name) {
     displayElement.innerHTML = "<p>Visitor not found.</p>";
   }
 }
-//הצגת התמונה בדיאלוג
+//vהצגת תמונה של שחקן בNAV
 function template(foundVisitor) {
   const template = `
       <div name="${foundVisitor.name}+name" style="width:300px; margin: 10px;">
