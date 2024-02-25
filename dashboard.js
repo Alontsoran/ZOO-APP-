@@ -77,6 +77,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   showVisitedAnimals();
   showFavoriteAnimal();
   showFeededAnimals();
+  UpdetTheMostVisitedAnimal();
   // Call other functions as needed
 });
 function coins_in_grph() {
@@ -137,8 +138,7 @@ function UpdetTheMostVisitedAnimal() {
   const animolName = TheMostVisitedAnimal();
   const animals = JSON.parse(localStorage.getItem("animals"));
   const animal = animals.find(animal => animal.name = animolName);
-  document.getElementById('favoriteAnimalImg').innerHTML += `<img src="${animal.image}" alt="${animal.name}" style="width:280px; margin: 10px;   max-width: 90%;" />`;
+  document.getElementById('favoriteAnimalImg').innerHTML = `<img src="${animal.image}" alt="${animal.name}" style="width:280px; margin: 10px;   max-width: 90%;" />`;
   document.getElementById('name').textContent = animal.name;
 }
 
-UpdetTheMostVisitedAnimal();
