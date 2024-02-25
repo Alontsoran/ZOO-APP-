@@ -137,8 +137,8 @@ function TheMostVisitedAnimal() {
 function UpdetTheMostVisitedAnimal() {
   const animolName = TheMostVisitedAnimal();
   const animals = JSON.parse(localStorage.getItem("animals"));
-  const animal = animals.find(animal => animal.name = animolName);
-  document.getElementById('favoriteAnimalImg').innerHTML = `<img src="${animal.image}" alt="${animal.name}" style="width:280px; margin: 10px;   max-width: 90%;" />`;
-  document.getElementById('name').textContent = animal.name;
+  const animal_ = animals.find(animal => animal.name = animolName);
+  document.getElementById('favoriteAnimalImg').innerHTML = `<img src="${animal_.image}" alt="${animal_.name}" style="width:280px; margin: 10px;   max-width: 90%;" />`;
+  document.getElementById('favoriteAnimalName').textContent = animal_.name;
 }
 
