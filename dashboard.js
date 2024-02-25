@@ -131,14 +131,21 @@ function TheMostVisitedAnimal() {
   const MostVisited = visitor.Documentation.reduce((MostVisited , current) => {
     return (MostVisited.visits > current.visits) ? MostVisited : current
   })
+  if (MostVisited.visits === 0) {
+    return false
+  }
   return MostVisited.name;
 }
 
 function UpdetTheMostVisitedAnimal() {
   const animolName = TheMostVisitedAnimal();
-  const animals = JSON.parse(localStorage.getItem("animals"));
-  const animal_ = animals.find(animal => animal.name === animolName);
-  document.getElementById('favoriteAnimalImg').innerHTML = `<img src="${animal_.image}" alt="${animal_.name}" style="width:280px; margin: 10px;   max-width: 90%;" />`;
-  document.getElementById('favoriteAnimalName').textContent = animal_.name;
+  if (animolName) {
+    const animals = JSON.parse(localStorage.getItem("animals"));
+    const animal_ = animals.find(animal => animal.name === animolName);
+    document.getElementById('favoriteAnimalImg').innerHTML = `<img src="${animal_.image}" alt="${animal_.name}" style="width:280px; margin: 10px;   max-width: 90%;" />`;
+    document.getElementById('favoriteAnimalName').textContent = animal_.name;}
+    else {
+      document.getElementById('favoriteAnimalName').textContent = "Didn't visit animals!";}
 }
+
 
