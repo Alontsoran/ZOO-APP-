@@ -439,27 +439,7 @@ if (previousValue !== currentValue) {
   window.top.location.reload();
   previousValue = currentValue;
 }
-/**
- //מעדכן את הכניסות
-window.addEventListener("storage", function (event) {
-  // מזהה שינוי בלוקל סטוריג
-  if (event.key === "TheChosenAnimal") {
-    const visitorName = localStorage.getItem("selectedVisitor");
-    if (!visitorName) {
-      //בודק שיש משתנה מחובר
-      alert("You need to be logged-in");
-      return;
-    }
-    visitors = JSON.parse(localStorage.getItem("visitors")); // מוצא את המשתמש המחובר
-    const visitor = visitors.find((visitor) => visitor.name === visitorName);
-    const animal = visitor.Documentation.find(
-      (animal) => animal.name === event.newValue
-    ); //הולך לחיה המתאימה
-    animal.visits += 1; // מוסיף ביקור
-    localStorage.setItem("visitors", JSON.stringify(visitors)); //שומר שינויים
-  }
-});
- */
+
 
 function remove_logout_button() {
   document.addEventListener("DOMContentLoaded", function () {
