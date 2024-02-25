@@ -5,6 +5,7 @@ function createNewVisitor(event) {
   var name = document.getElementById("name").value;
   console.log(document.getElementById("name").value);
   document.getElementById("name").value = "";
+
   const newvisitor = {
     name: name,
     alive: 1,
@@ -61,6 +62,11 @@ function createNewVisitor(event) {
     ]),
   };
   let visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+  visitors.forEach((visitor) => {
+    if (visitor.name === name) {
+      return alert("This user is already login please change the Name");
+    }
+  });
   visitors.push(newvisitor);
   console.log(visitors);
   localStorage.setItem("visitors", JSON.stringify(visitors));
