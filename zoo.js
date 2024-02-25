@@ -3,11 +3,7 @@ function renderAvailableAnimals(animalInZOO) {
   // וודאו שאתם מציגים אך ורק את החיות שעומדות בפילטורים הנוכחיים
   // במידה ואין פילטרים מסומנים, הציגו את כל החיות
   const animals = AdvancedFilter(animalInZOO);
-  const animalsContainer =
-    document.getElementById("animal-cards");
-    animalsContainer.innerHTML = "";
-  const animalsHTML = animals.map(getvisitorHTMLCard).join("");
-  animalsContainer.innerHTML = animalsHTML;
+  PresentsAnimals(animals)
 
   animalInZOO.forEach(animal => {
     const card = document.getElementById(`card-${animal.name}`);
@@ -17,6 +13,16 @@ function renderAvailableAnimals(animalInZOO) {
       });
     }
   });
+}
+
+//מציגה את החיות
+function PresentsAnimals(animals) {
+  const animalsContainer =
+    document.getElementById("animal-cards");
+    animalsContainer.innerHTML = "";
+  const animalsHTML = animals.map(getvisitorHTMLCard).join("");
+  animalsContainer.innerHTML = animalsHTML;
+
 }
 
 function visitAnimal(animalName) {
@@ -158,3 +164,16 @@ function populateColorOptions(animalInZOO) {
   });
 }
 
+//מאזין לשדה החיפש
+document.getElementById("searchInput").addEventListener("input", (e) => {
+  searchAnimals(e.target.value);
+});
+
+//מאתר את החיות המתאימות ומציג אותן
+function searchAnimals(searchTerm) {
+  const filteredAnimals = animalInZOO.filter(animal => 
+    animal.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  PresentsAnimals(filteredAnimals)
+}

@@ -108,13 +108,13 @@ iframe {
   display: flex;
   padding-left: 10px;
 }
-#cardss {
+/*#cardss {
   border: 5px solid black;
 }
 #cardss div {
   border: 1px solid black;
   background-color: coral;
-}
+}*/
 #login_body {
   background: url(./photos/backgrounds/Z9_Jungle.jpg);
 }
@@ -217,13 +217,21 @@ input {
   margin: 10px;
 }
 
-/*שיכפול קוד!! לבדוק האם אפשר למחוק את הID למעלה*/
 .cardss {
   border: 5px solid black;
 }
 .cardss div {
   border: 1px solid black;
   background-color: coral;
+}
+
+#searchBar {
+  display: flex;
+  justify-content: center;
+}
+
+#searchInput {
+  min-width: 80%;
 }
 
 /*דף החיות*/
