@@ -165,6 +165,12 @@ function getvisitorHTMLCard(animal) { //יש פה הבדלים בסטייל בי
 //מעביר דף בלחיצה
 function visitAnimal(animalName) {
   localStorage.setItem('TheChosenAnimal', JSON.stringify(animalName));
+  //מעדכן כניסות
+  const visitor = visitors.find(visitor => visitor.name === visitorName);
+  const animal = visitor.Documentation.find(animal => animal.name === animalName); //הולך לחיה המתאימה
+  animal.visits +=1; // מוסיף ביקור
+  localStorage.setItem('visitors', JSON.stringify(visitors));
+  //עובר דף
   window.location.href = './animal.html';
 }
 

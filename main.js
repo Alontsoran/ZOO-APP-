@@ -321,7 +321,7 @@ if (clearDataBtn) {
   console.warn("אזהרה: אלמנט 'clear_data' לא נמצא ב-DOM.");
 }
 
-//logout
+//logout button log out function inside!!!
 const logoutBtn = document.getElementById("logout");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", function logout() {
@@ -368,7 +368,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const Options = document.getElementById("visitor-select");
   if (Options) {
     Options.addEventListener("change", function () {
-      var selectedOption = this.options[this.selectedIndex];
+      const selectedOption = this.options[this.selectedIndex];
       localStorage.setItem("selectedVisitor", selectedOption.text);
       window.top.location.reload();
       location.reload();
@@ -439,7 +439,8 @@ if (previousValue !== currentValue) {
   window.top.location.reload();
   previousValue = currentValue;
 }
-//מעדכן את הכניסות
+/**
+ //מעדכן את הכניסות
 window.addEventListener("storage", function (event) {
   // מזהה שינוי בלוקל סטוריג
   if (event.key === "TheChosenAnimal") {
@@ -458,16 +459,19 @@ window.addEventListener("storage", function (event) {
     localStorage.setItem("visitors", JSON.stringify(visitors)); //שומר שינויים
   }
 });
+ */
+
 function remove_logout_button() {
   document.addEventListener("DOMContentLoaded", function () {
     var iframe = document.getElementById("frame");
 
     iframe.addEventListener("load", function () {
       try {
-        var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+        const iframeDoc =
+          iframe.contentDocument || iframe.contentWindow.document;
         // ניתן לגשת לאלמנטים ב-DOM של הדף המוטען ב-iframe
-        var specificElement = iframeDoc.getElementById("select_visitor");
-        var specificElement2 = iframeDoc.getElementById("logout");
+        const specificElement = iframeDoc.getElementById("select_visitor");
+        const specificElement2 = iframeDoc.getElementById("logout");
         if (specificElement && specificElement2) {
           // שינוי האלמנט לפי הצורך
           specificElement.style.display = "none";
