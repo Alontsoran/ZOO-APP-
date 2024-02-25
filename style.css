@@ -22,16 +22,16 @@ nav {
 }
 .title {
   width: 100px;
-  overflow: hidden; /* Ensures content exceeding the width is hidden */
-  white-space: nowrap; /* Keeps the text in a single line */
-  text-overflow: ellipsis; /* Adds an ellipsis if the text overflows */
-  /* Additional styling to make the title look good */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
   font-weight: bold;
   text-align: center;
-  background-color: #f0f0f0; /* Light grey background, change as needed */
+  background-color: #f0f0f0;
   padding: 10px;
-  border: 1px solid #d0d0d0; /* Light grey border, change as needed */
-  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+  border: 1px solid #d0d0d0;
+  box-sizing: border-box;
 }
 .logo {
   height: 75px;

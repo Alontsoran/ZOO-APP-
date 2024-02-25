@@ -333,7 +333,7 @@ if (logoutBtn) {
 } else {
   console.warn("אזהרה: אלמנט 'logout' לא נמצא ב-DOM.");
 }
-
+//ניתוק משתמש
 function logout_dataset() {
   if (
     localStorage.getItem("selectedVisitor") == "" ||
@@ -428,18 +428,18 @@ function template(foundVisitor) {
       </div>
     `;
 }
-
-updateNavbar();
-visitorsnav();
-previousValue = getselectdvisitor();
-currentValue = getselectdvisitor();
 if (previousValue !== currentValue) {
   console.log('Change detected in localStorage for key "selectedVisitor".');
   updateNavbar();
   window.top.location.reload();
   previousValue = currentValue;
 }
-
+updateNavbar();
+visitorsnav();
+previousValue = getselectdvisitor();
+currentValue = getselectdvisitor();
+//פונקציית הסרה של כפתור הבחירת משתמשים וגם הכפתור של LOG OUT
+//PAGES THAT NOT HAVE THAT : ZOO ANIMAL DASHBOARD
 function remove_logout_button() {
   document.addEventListener("DOMContentLoaded", function () {
     var iframe = document.getElementById("frame");
