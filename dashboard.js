@@ -69,15 +69,13 @@ function showFeededAnimals() {
     },
   });
 }
-function showFavoriteAnimal() {
-  //ממשו את הלוגיקה שמציגה את החיה שהאורח ביקר הכי הרבה פעמים אצלה
-}
+
 window.addEventListener("DOMContentLoaded", (event) => {
   coins_in_grph();
   showVisitedAnimals();
   showFavoriteAnimal();
   showFeededAnimals();
-  UpdetTheMostVisitedAnimal();
+
   // Call other functions as needed
 });
 function coins_in_grph() {
@@ -128,17 +126,18 @@ function VisitedAnimals() {
 //מוצא את החיה שביקרו הכי הרבה
 function TheMostVisitedAnimal() {
   const visitor = visitors.find((visitor) => visitor.name === visitorName);
-  const MostVisited = visitor.Documentation.reduce((MostVisited , current) => {
-    return (MostVisited.visits > current.visits) ? MostVisited : current
-  })
+  const MostVisited = visitor.Documentation.reduce((MostVisited, current) => {
+    return MostVisited.visits > current.visits ? MostVisited : current;
+  });
   return MostVisited.name;
 }
 
-function UpdetTheMostVisitedAnimal() {
+function showFavoriteAnimal() {
   const animolName = TheMostVisitedAnimal();
   const animals = JSON.parse(localStorage.getItem("animals"));
-  const animal_ = animals.find(animal => animal.name === animolName);
-  document.getElementById('favoriteAnimalImg').innerHTML = `<img src="${animal_.image}" alt="${animal_.name}" style="width:280px; margin: 10px;   max-width: 90%;" />`;
-  document.getElementById('favoriteAnimalName').textContent = animal_.name;
+  const animal_ = animals.find((animal) => animal.name === animolName);
+  document.getElementById(
+    "favoriteAnimalImg"
+  ).innerHTML = `<img src="${animal_.image}" alt="${animal_.name}" style="width:280px; margin: 10px;   max-width: 90%;" />`;
+  document.getElementById("favoriteAnimalName").textContent = animal_.name;
 }
-
