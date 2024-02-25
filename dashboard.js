@@ -69,15 +69,13 @@ function showFeededAnimals() {
     },
   });
 }
-function showFavoriteAnimal() {
-  //ממשו את הלוגיקה שמציגה את החיה שהאורח ביקר הכי הרבה פעמים אצלה
-}
+
 window.addEventListener("DOMContentLoaded", (event) => {
   coins_in_grph();
   showVisitedAnimals();
   showFavoriteAnimal();
   showFeededAnimals();
-  UpdetTheMostVisitedAnimal();
+
   // Call other functions as needed
 });
 function coins_in_grph() {
@@ -137,7 +135,7 @@ function TheMostVisitedAnimal() {
   return MostVisited.name;
 }
 
-function UpdetTheMostVisitedAnimal() {
+function showFavoriteAnimal() {
   const animolName = TheMostVisitedAnimal();
   if (animolName) {
     const animals = JSON.parse(localStorage.getItem("animals"));
