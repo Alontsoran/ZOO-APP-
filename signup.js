@@ -76,6 +76,7 @@ const makeVisitor = (name) => {
   console.log(visitors);
   localStorage.setItem("visitors", JSON.stringify(visitors));
   document.getElementById("name").value = "";
+  window.location.href = "./login.html";
 };
 
 /**************************************

@@ -333,7 +333,7 @@ if (logoutBtn) {
 } else {
   console.warn("אזהרה: אלמנט 'logout' לא נמצא ב-DOM.");
 }
-
+//logout from selected visitor
 function logout_dataset() {
   if (
     localStorage.getItem("selectedVisitor") == "" ||
@@ -342,6 +342,7 @@ function logout_dataset() {
     localStorage.setItem("selectedVisitor", " ");
   }
 }
+//חיפוש במערך של השם
 function findvisitor(name) {
   const visitors = JSON.parse(localStorage.getItem("visitors")) || [];
   const foundVisitor = visitors.find((visitor) => visitor.name === name);

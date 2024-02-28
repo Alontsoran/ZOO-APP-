@@ -10,7 +10,7 @@ The `<dialog>` element supports several methods that allow you to control its be
 
 ### Code Example
 
-In this example, we'll create a simple e-commerce product listing. Each product will have a "View Details" button that, when clicked, will open a dialog containing more details about the product.
+In this example, we'll create a simple e-commerce product listing. Each product will have a "View Details" button that, when clicked, will open a dialog containing more details about the prVoduct.
 
 ```html
 <!DOCTYPE html>
