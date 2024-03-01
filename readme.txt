@@ -1,7 +1,2 @@
-בתוך החייה צריך להוסיף : 
-ID 
-תמונת לגו CHAT 
-סרטון על החייה
-בתוך הבנאדם צריך להוסיף : 
-ID
-תמונת לגו בנאדם  
+HEllo 
+welcome to our game ! When guests enter the zoo, each one starts with 50 gold coins. Guests can roam the zoo and visit any animal they wish. 🐾✨ During an animal  visit, a guest may choose to feed the animal at the cost of 2 gold coins. 💰🥕 After feeding, the guest's gold coins should be updated accordingly. If a guest attempts to feed an animal but does not have enough gold coins, one of two things will happen: If the animal is a predator, it will devour the guest to satisfaction, resulting in the guest being removed from the zoo's guest registry. 🐅💔 If the animal isnot a predator, the animal will escape from the zoo, causing it to be removed from the zoo's animal registry. 🦒🚪
