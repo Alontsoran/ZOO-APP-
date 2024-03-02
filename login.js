@@ -109,7 +109,7 @@ function searchforelement(name) {
   }
 }
 document.getElementById("Yes_ready").addEventListener("click", function () {
-  window.location.href = "./login.html";
+  window.location.href = "./zoo.html";
 });
 //vהצגת תמונה של שחקן בNAV
 function template(foundVisitor) {
