@@ -442,7 +442,7 @@ if (previousValue !== currentValue) {
 }
 //nav link
 document.getElementById("tabhome").addEventListener("click", function () {
-  window.top.location.href = "./index.html";
+  window.top.location.href = "/";
 });
 function remove_logout_button() {
   document.addEventListener("DOMContentLoaded", function () {
