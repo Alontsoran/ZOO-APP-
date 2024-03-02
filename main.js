@@ -440,7 +440,10 @@ if (previousValue !== currentValue) {
   window.top.location.reload();
   previousValue = currentValue;
 }
-
+//nav link
+document.getElementById("tabhome").addEventListener("click", function () {
+  window.top.location.href = "./index.html";
+});
 function remove_logout_button() {
   document.addEventListener("DOMContentLoaded", function () {
     var iframe = document.getElementById("frame");
